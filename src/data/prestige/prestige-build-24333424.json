@@ -1,0 +1,4228 @@
+{
+  "schemaVersion": 2,
+  "databaseId": "steam-4078200-build-24333424",
+  "capturedAt": "2026-08-23",
+  "game": {
+    "steamAppId": 4078200,
+    "steamBuildId": "24333424",
+    "executableSha256": "e242bdf6852a33181001ee380b3ea68589a6ce448776d29bc08685bd655e69cd",
+    "dataFileSha256": "3bc9da082e4fe89b71e7ba46f8cf8d354bb48a8d47f9cc41bb49a25b7c85492f",
+    "localizationSha256": "0daff18b9752e6bd3104e069dab58737f0df0ad7cdc3671d45f5db6281e8b214",
+    "yyc": true
+  },
+  "provenance": [
+    {
+      "id": "installed-native-metadata",
+      "type": "official-game",
+      "confidence": "verified",
+      "fields": [
+        "id",
+        "fallback name",
+        "tier",
+        "native rank cap",
+        "base cost",
+        "sprite resource index",
+        "localization references"
+      ]
+    },
+    {
+      "id": "installed-localization",
+      "type": "official-game",
+      "confidence": "verified",
+      "fields": [
+        "display name",
+        "effect text",
+        "rank-specific Ascension gates",
+        "Ascension-scaled purchase limits",
+        "run-upgrade requirements",
+        "Prestige-node relationships"
+      ]
+    },
+    {
+      "id": "live-prestige-screen-cross-check",
+      "type": "official-game",
+      "confidence": "verified",
+      "fields": [
+        "tier counts",
+        "seven-column row layout",
+        "constructor-order placement",
+        "tier unlock thresholds"
+      ]
+    },
+    {
+      "id": "installed-save-delta-cross-check",
+      "type": "official-game",
+      "confidence": "verified",
+      "fields": [
+        "fixed PP cost per rank equals tier multiplied by baseCost"
+      ]
+    }
+  ],
+  "costModel": {
+    "formula": "costPerRank = tier * baseCost",
+    "baseCostValues": [
+      1
+    ],
+    "rankScaling": false,
+    "evidence": "All 102 native node structs store baseCost 1. Two independent local save deltas equal the sum of purchased node tiers (19 PP and 15 PP)."
+  },
+  "tierUnlocks": [
+    {
+      "tier": 1,
+      "prestigePointsSpent": 0
+    },
+    {
+      "tier": 2,
+      "prestigePointsSpent": 12
+    },
+    {
+      "tier": 3,
+      "prestigePointsSpent": 50
+    },
+    {
+      "tier": 4,
+      "prestigePointsSpent": 125
+    },
+    {
+      "tier": 5,
+      "prestigePointsSpent": 180
+    },
+    {
+      "tier": 6,
+      "prestigePointsSpent": 250
+    }
+  ],
+  "dependencyModel": {
+    "nodeEdges": false,
+    "rule": "Nodes have no per-node prerequisite field or dependency edge; access is gated by the tier spent threshold."
+  },
+  "layout": {
+    "columns": 7,
+    "rule": "Filter native constructor order by tier, then fill rows left to right."
+  },
+  "nodes": [
+    {
+      "id": "p_start_runners",
+      "name": "Swift Start",
+      "tier": 1,
+      "position": {
+        "row": 0,
+        "column": 0
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] runners.",
+        "plainText": "Start the game with 1/2/3 runners.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_start_runners.name",
+        "localizationDescriptionKey": "prestige.p_start_runners.desc",
+        "spriteResourceIndex": 547,
+        "constructor": "0x1405869C0"
+      }
+    },
+    {
+      "id": "p_housing_batch_dwarves",
+      "name": "Housing Batches",
+      "tier": 1,
+      "position": {
+        "row": 0,
+        "column": 1
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Every [#8ccafa]4[c_white] Underground Housings built, you get +[#8ccafa]2[c_white] dwarves.",
+        "plainText": "Every 4 Underground Housings built, you get +2 dwarves.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_housing_batch_dwarves.name",
+        "localizationDescriptionKey": "prestige.p_housing_batch_dwarves.desc",
+        "spriteResourceIndex": 507,
+        "constructor": "0x140586D60"
+      }
+    },
+    {
+      "id": "p_dwarf_on_mountain_kill",
+      "name": "Mountain Recruits",
+      "tier": 1,
+      "position": {
+        "row": 0,
+        "column": 2
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Every [#8ccafa]3[c_white]rd mountain you consume, you get +[#8ccafa]1[c_white] dwarf.",
+        "plainText": "Every 3rd mountain you consume, you get +1 dwarf.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_dwarf_on_mountain_kill.name",
+        "localizationDescriptionKey": "prestige.p_dwarf_on_mountain_kill.desc",
+        "spriteResourceIndex": 518,
+        "constructor": "0x1405870F0"
+      }
+    },
+    {
+      "id": "p_start_gold_per_pp",
+      "name": "Golden Inheritance",
+      "tier": 1,
+      "position": {
+        "row": 0,
+        "column": 3
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with +[#8ccafa]10[c_white]/[#8ccafa]20[c_white] gold for each PP spent.",
+        "plainText": "Start the game with +10/20 gold for each PP spent.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_start_gold_per_pp.name",
+        "localizationDescriptionKey": "prestige.p_start_gold_per_pp.desc",
+        "spriteResourceIndex": 498,
+        "constructor": "0x140587480"
+      }
+    },
+    {
+      "id": "p_start_dwarves",
+      "name": "Veteran Settlers",
+      "tier": 1,
+      "position": {
+        "row": 0,
+        "column": 4
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with [#8ccafa]2[c_white]/[#8ccafa]4[c_white] dwarves.",
+        "plainText": "Start the game with 2/4 dwarves.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_start_dwarves.name",
+        "localizationDescriptionKey": "prestige.p_start_dwarves.desc",
+        "spriteResourceIndex": 553,
+        "constructor": "0x140587820"
+      }
+    },
+    {
+      "id": "p_start_mithril",
+      "name": "Ancient Cache",
+      "tier": 1,
+      "position": {
+        "row": 0,
+        "column": 5
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with [#8ccafa]2[c_white]/[#8ccafa]3[c_white]/[#8ccafa]4[c_white] Mithril.",
+        "plainText": "Start the game with 2/3/4 Mithril.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_start_mithril.name",
+        "localizationDescriptionKey": "prestige.p_start_mithril.desc",
+        "spriteResourceIndex": 457,
+        "constructor": "0x140587BC0"
+      }
+    },
+    {
+      "id": "p_start_gold_per_tier",
+      "name": "Shiny Reserves",
+      "tier": 1,
+      "position": {
+        "row": 0,
+        "column": 6
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with +[#8ccafa]500[c_white] gold for each prestige tier unlocked.",
+        "plainText": "Start the game with +500 gold for each prestige tier unlocked.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_start_gold_per_tier.name",
+        "localizationDescriptionKey": "prestige.p_start_gold_per_tier.desc",
+        "spriteResourceIndex": 535,
+        "constructor": "0x140587F60"
+      }
+    },
+    {
+      "id": "p_runner_stash_capacity",
+      "name": "Looming Motivation",
+      "tier": 1,
+      "position": {
+        "row": 1,
+        "column": 0
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "When there are over [#8ccafa]350[c_white] uncollected ores and the mountain starts reclaiming them, Runners gain +[#8ccafa]3[c_white]/[#8ccafa]4[c_white]/[#8ccafa]5[c_white] temporary carrying capacity when they return to stash.",
+        "plainText": "When there are over 350 uncollected ores and the mountain starts reclaiming them, Runners gain +3/4/5 temporary carrying capacity when they return to stash.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_runner_stash_capacity.name",
+        "localizationDescriptionKey": "prestige.p_runner_stash_capacity.desc",
+        "spriteResourceIndex": 510,
+        "constructor": "0x1405882F0"
+      }
+    },
+    {
+      "id": "p_start_random_tier1_artifact",
+      "name": "Heirloom Inheritance",
+      "tier": 1,
+      "position": {
+        "row": 1,
+        "column": 1
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "You start the game with [#8ccafa]1[c_white] random tier [#8ccafa]1[c_white] artifact spawned.",
+        "plainText": "You start the game with 1 random tier 1 artifact spawned.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_start_random_tier1_artifact.name",
+        "localizationDescriptionKey": "prestige.p_start_random_tier1_artifact.desc",
+        "spriteResourceIndex": 504,
+        "constructor": "0x140588690"
+      }
+    },
+    {
+      "id": "p_runner_slap_bonus_add",
+      "name": "Wakeful Slap Mastery",
+      "tier": 1,
+      "position": {
+        "row": 1,
+        "column": 2
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Slapping stunned runners is +[#8ccafa]100[c_white]/[#8ccafa]200[c_white]/[#8ccafa]300[c_white]% more effective.",
+        "plainText": "Slapping stunned runners is +100/200/300% more effective.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_runner_slap_bonus_add.name",
+        "localizationDescriptionKey": "prestige.p_runner_slap_bonus_add.desc",
+        "spriteResourceIndex": 538,
+        "constructor": "0x140588A20"
+      }
+    },
+    {
+      "id": "p_cyberdwarf",
+      "name": "Cyberdwarf",
+      "tier": 2,
+      "position": {
+        "row": 0,
+        "column": 0
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [
+        {
+          "kind": "enables-at-run-tier",
+          "targetUpgradeId": "p_cluster_pick",
+          "targetName": "C.L.U.S.T.E.R.P.I.C.K.",
+          "minimumRunUpgradeTier": 2
+        }
+      ],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Cyberdwarf upgrade in the Grand Laboratory.\nRequires an entourage of Scientists to unlock.\n\nCyberdwarf:\nHalf dwarf, half machine.\n\nUnlocks Gorilla Arms and Rhino Legs for Runners.\n\nUnlocks C.L.U.S.T.E.R.P.I.C.K. for Miners (requires T4 prestige upgrade).\n\nEach following tier further buffs all those upgrades as specified.",
+        "plainText": "Unlocks Cyberdwarf upgrade in the Grand Laboratory.\nRequires an entourage of Scientists to unlock.\n\nCyberdwarf:\nHalf dwarf, half machine.\n\nUnlocks Gorilla Arms and Rhino Legs for Runners.\n\nUnlocks C.L.U.S.T.E.R.P.I.C.K. for Miners (requires T4 prestige upgrade).\n\nEach following tier further buffs all those upgrades as specified.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_cyberdwarf.name",
+        "localizationDescriptionKey": "prestige.p_cyberdwarf.desc",
+        "spriteResourceIndex": 473,
+        "constructor": "0x140588DC0"
+      }
+    },
+    {
+      "id": "p_powder_hall",
+      "name": "Powder Hall",
+      "tier": 2,
+      "position": {
+        "row": 0,
+        "column": 1
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [
+        {
+          "kind": "enables-at-run-tier",
+          "targetUpgradeId": "p_mapped_destruction",
+          "targetName": "Mapped Destruction",
+          "minimumRunUpgradeTier": 3
+        },
+        {
+          "kind": "enables-at-run-tier",
+          "targetUpgradeId": "p_nuclear_research",
+          "targetName": "Nuclear Research",
+          "minimumRunUpgradeTier": 4
+        }
+      ],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Powder Hall upgrade in the Demolition Shack.\nRequires a few Scientists to unlock.\n\nPowder Hall:\nUnlocks advanced explosions and alchemical upgrades.\n\n[c_white]Tier [#8ccafa]1[c_white] unlocks Stardust Calamity Powder for demodwarves, and Seismic Revelations for all dwarves.\n\nTier [#8ccafa]2[c_white] unlocks It's Rainning Dynamite for demodwarves, and Pixie Cocaine for runners.\n\nTier [#8ccafa]3[c_white] unlocks Mapped Destruction (prestige) upgrade.\n\nTier [#8ccafa]4[c_white] further buffs related upgrades and unlocks Nuclear Research.",
+        "plainText": "Unlocks Powder Hall upgrade in the Demolition Shack.\nRequires a few Scientists to unlock.\n\nPowder Hall:\nUnlocks advanced explosions and alchemical upgrades.\n\nTier 1 unlocks Stardust Calamity Powder for demodwarves, and Seismic Revelations for all dwarves.\n\nTier 2 unlocks It's Rainning Dynamite for demodwarves, and Pixie Cocaine for runners.\n\nTier 3 unlocks Mapped Destruction (prestige) upgrade.\n\nTier 4 further buffs related upgrades and unlocks Nuclear Research.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_powder_hall.name",
+        "localizationDescriptionKey": "prestige.p_powder_hall.desc",
+        "spriteResourceIndex": 522,
+        "constructor": "0x140589160"
+      }
+    },
+    {
+      "id": "p_ritual_power",
+      "name": "Ritual Power",
+      "tier": 2,
+      "position": {
+        "row": 0,
+        "column": 2
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Ritual Power upgrade in the Great Forge.\n\nWhispers of flame and stone, from caverns below. Such primordial power can drive a dwarf mad!\n\nThis power unlocks rituals, and each tier further buffs various other rituals as specified in their description.\nUnlocks:\n-Enchant Good Luck\n-Enchant Lethal Precision\n-Enchant Calamitous Force\n-Call Earthquake",
+        "plainText": "Unlocks Ritual Power upgrade in the Great Forge.\n\nWhispers of flame and stone, from caverns below. Such primordial power can drive a dwarf mad!\n\nThis power unlocks rituals, and each tier further buffs various other rituals as specified in their description.\nUnlocks:\n-Enchant Good Luck\n-Enchant Lethal Precision\n-Enchant Calamitous Force\n-Call Earthquake",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_ritual_power.name",
+        "localizationDescriptionKey": "prestige.p_ritual_power.desc",
+        "spriteResourceIndex": 531,
+        "constructor": "0x140589500"
+      }
+    },
+    {
+      "id": "p_den_artifact_chance",
+      "name": "Acquisitions Incorporated",
+      "tier": 2,
+      "position": {
+        "row": 0,
+        "column": 3
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Dens have +[#8ccafa]4[c_white]/[#8ccafa]6[c_white]/[#8ccafa]8[c_white]% chance to drop an artifact.",
+        "plainText": "Dens have +4/6/8% chance to drop an artifact.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_den_artifact_chance.name",
+        "localizationDescriptionKey": "prestige.p_den_artifact_chance.desc",
+        "spriteResourceIndex": 452,
+        "constructor": "0x1405898A0"
+      }
+    },
+    {
+      "id": "p_artifact_collect_gold",
+      "name": "Relic Grant",
+      "tier": 2,
+      "position": {
+        "row": 0,
+        "column": 4
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Whenever you collect an artifact, you gain +[#8ccafa]150[c_white]-[#8ccafa]210/330/420[c_white] gold.",
+        "plainText": "Whenever you collect an artifact, you gain +150-210/330/420 gold.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_artifact_collect_gold.name",
+        "localizationDescriptionKey": "prestige.p_artifact_collect_gold.desc",
+        "spriteResourceIndex": 529,
+        "constructor": "0x140589C40"
+      }
+    },
+    {
+      "id": "p_rocks_more_gems",
+      "name": "Prospector's Omens",
+      "tier": 2,
+      "position": {
+        "row": 0,
+        "column": 5
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Falling rocks have +[#8ccafa]0.6[c_white]/[#8ccafa]1.2[c_white]% higher chance to contain ore. Doubled when destroyed by a turret.",
+        "plainText": "Falling rocks have +0.6/1.2% higher chance to contain ore. Doubled when destroyed by a turret.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_rocks_more_gems.name",
+        "localizationDescriptionKey": "prestige.p_rocks_more_gems.desc",
+        "spriteResourceIndex": 525,
+        "constructor": "0x140589FE0"
+      }
+    },
+    {
+      "id": "p_runners_grace",
+      "name": "Fleet-Footed And Rock-Hard",
+      "tier": 2,
+      "position": {
+        "row": 0,
+        "column": 6
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Runners get +[#8ccafa]10[c_white]/[#8ccafa]17[c_white]/[#8ccafa]25[c_white]% stun resistance and +[#8ccafa]5[c_white]/[#8ccafa]9[c_white]/[#8ccafa]14[c_white]% Dodge.",
+        "plainText": "Runners get +10/17/25% stun resistance and +5/9/14% Dodge.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_runners_grace.name",
+        "localizationDescriptionKey": "prestige.p_runners_grace.desc",
+        "spriteResourceIndex": 487,
+        "constructor": "0x14058A380"
+      }
+    },
+    {
+      "id": "p_calamity_runner_speed",
+      "name": "Panic Stride",
+      "tier": 2,
+      "position": {
+        "row": 1,
+        "column": 0
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Whenever a calamity triggers, runners get +[#8ccafa]15[c_white]/[#8ccafa]30[c_white]% speed for [#8ccafa]4-7[c_white] seconds.",
+        "plainText": "Whenever a calamity triggers, runners get +15/30% speed for 4-7 seconds.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_calamity_runner_speed.name",
+        "localizationDescriptionKey": "prestige.p_calamity_runner_speed.desc",
+        "spriteResourceIndex": 521,
+        "constructor": "0x14058A720"
+      }
+    },
+    {
+      "id": "p_calamity_global_cd_reduction",
+      "name": "Crisis Reflexes",
+      "tier": 2,
+      "position": {
+        "row": 1,
+        "column": 1
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Whenever a calamity triggers, all dwarves get +[#8ccafa]10[c_white]/[#8ccafa]20[c_white]% CD reduction for [#8ccafa]4-7[c_white] seconds.",
+        "plainText": "Whenever a calamity triggers, all dwarves get +10/20% CD reduction for 4-7 seconds.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_calamity_global_cd_reduction.name",
+        "localizationDescriptionKey": "prestige.p_calamity_global_cd_reduction.desc",
+        "spriteResourceIndex": 472,
+        "constructor": "0x14058AAC0"
+      }
+    },
+    {
+      "id": "p_runners_marching_orders",
+      "name": "Marching Orders",
+      "tier": 2,
+      "position": {
+        "row": 1,
+        "column": 2
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Runners get +[#8ccafa]50[c_white]/[#8ccafa]70[c_white]% speed, reduced by [#8ccafa]5[c_white]% for each runner you have, up to a minimum of [#8ccafa]15[c_white]%.",
+        "plainText": "Runners get +50/70% speed, reduced by 5% for each runner you have, up to a minimum of 15%.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_runners_marching_orders.name",
+        "localizationDescriptionKey": "prestige.p_runners_marching_orders.desc",
+        "spriteResourceIndex": 514,
+        "constructor": "0x14058AE60"
+      }
+    },
+    {
+      "id": "p_scientist_per_6_calamities",
+      "name": "Field Recruits",
+      "tier": 2,
+      "position": {
+        "row": 1,
+        "column": 3
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "You get +[#8ccafa]1[c_white] Scientist for every [#8ccafa]61[c_white]/[#8ccafa]55[c_white] calamities you trigger. (Free scientists still scale the gold cost)",
+        "plainText": "You get +1 Scientist for every 61/55 calamities you trigger. (Free scientists still scale the gold cost)",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_scientist_per_6_calamities.name",
+        "localizationDescriptionKey": "prestige.p_scientist_per_6_calamities.desc",
+        "spriteResourceIndex": 485,
+        "constructor": "0x14058B200"
+      }
+    },
+    {
+      "id": "p_firefield_extend_on_hit",
+      "name": "Enduring Embers",
+      "tier": 2,
+      "position": {
+        "row": 1,
+        "column": 4
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Fire field duration is extended by [#8ccafa]1.5[c_white]/[#8ccafa]3[c_white]s whenever it gets hit by an attack.",
+        "plainText": "Fire field duration is extended by 1.5/3s whenever it gets hit by an attack.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_firefield_extend_on_hit.name",
+        "localizationDescriptionKey": "prestige.p_firefield_extend_on_hit.desc",
+        "spriteResourceIndex": 481,
+        "constructor": "0x14058B5A0"
+      }
+    },
+    {
+      "id": "p_mountain_mithril_chance",
+      "name": "Mountain's Hidden Veins",
+      "tier": 1,
+      "position": {
+        "row": 1,
+        "column": 3
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "Every time you consume a mountain you have [#8ccafa]11[c_white]/[#8ccafa]22[c_white]% chance to get +[#8ccafa]1[c_white] Mithril. The chance is increased by [#8ccafa]0.2[c_white]% per miner, runesmith and scientist.",
+        "plainText": "Every time you consume a mountain you have 11/22% chance to get +1 Mithril. The chance is increased by 0.2% per miner, runesmith and scientist.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_mountain_mithril_chance.name",
+        "localizationDescriptionKey": "prestige.p_mountain_mithril_chance.desc",
+        "spriteResourceIndex": 505,
+        "constructor": "0x14058B940"
+      }
+    },
+    {
+      "id": "p_runners_carry_capacity",
+      "name": "Hard Carries",
+      "tier": 2,
+      "position": {
+        "row": 1,
+        "column": 5
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Runners get +[#8ccafa]1[c_white]/[#8ccafa]2[c_white] carrying capacity.",
+        "plainText": "Runners get +1/2 carrying capacity.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_runners_carry_capacity.name",
+        "localizationDescriptionKey": "prestige.p_runners_carry_capacity.desc",
+        "spriteResourceIndex": 503,
+        "constructor": "0x14058BCE0"
+      }
+    },
+    {
+      "id": "p_ore_click_force",
+      "name": "Orequake Finger",
+      "tier": 1,
+      "position": {
+        "row": 1,
+        "column": 4
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "+[#8ccafa]50[c_white]/[#8ccafa]100[c_white]% force when clicking ores.",
+        "plainText": "+50/100% force when clicking ores.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_ore_click_force.name",
+        "localizationDescriptionKey": "prestige.p_ore_click_force.desc",
+        "spriteResourceIndex": 520,
+        "constructor": "0x14058C080"
+      }
+    },
+    {
+      "id": "p_miners_free_buys",
+      "name": "Guild Apprentices",
+      "tier": 1,
+      "position": {
+        "row": 1,
+        "column": 5
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "The first [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] additional miners you buy cost [#8ccafa]0[c_white] gold.",
+        "plainText": "The first 1/2/3 additional miners you buy cost 0 gold.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_miners_free_buys.name",
+        "localizationDescriptionKey": "prestige.p_miners_free_buys.desc",
+        "spriteResourceIndex": 494,
+        "constructor": "0x14058C420"
+      }
+    },
+    {
+      "id": "p_demodwarves_free_buys",
+      "name": "Explosive Interns",
+      "tier": 1,
+      "position": {
+        "row": 1,
+        "column": 6
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 1,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 1,
+          "prestigePointsSpent": 0
+        }
+      ],
+      "effect": {
+        "gameText": "The first [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] additional demodwarves you buy cost [#8ccafa]0[c_white] gold.",
+        "plainText": "The first 1/2/3 additional demodwarves you buy cost 0 gold.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_demodwarves_free_buys.name",
+        "localizationDescriptionKey": "prestige.p_demodwarves_free_buys.desc",
+        "spriteResourceIndex": 490,
+        "constructor": "0x14058C7B0"
+      }
+    },
+    {
+      "id": "p_flamers_free_buys",
+      "name": "Ash-Eater Recruits",
+      "tier": 2,
+      "position": {
+        "row": 1,
+        "column": 6
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "The first [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] additional flamers you buy cost [#8ccafa]0[c_white] gold.",
+        "plainText": "The first 1/2/3 additional flamers you buy cost 0 gold.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_flamers_free_buys.name",
+        "localizationDescriptionKey": "prestige.p_flamers_free_buys.desc",
+        "spriteResourceIndex": 491,
+        "constructor": "0x14058CB40"
+      }
+    },
+    {
+      "id": "p_buried_heirlooms_newspaper",
+      "name": "Buried Heirlooms Newspaper",
+      "tier": 2,
+      "position": {
+        "row": 2,
+        "column": 0
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Every time you consume a mountain you have [#8ccafa]5[c_white]/[#8ccafa]10[c_white]/[#8ccafa]15[c_white]/[#8ccafa]20[c_white]% chance to get +[#8ccafa]1[c_white] PP.",
+        "plainText": "Every time you consume a mountain you have 5/10/15/20% chance to get +1 PP.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_buried_heirlooms_newspaper.name",
+        "localizationDescriptionKey": "prestige.p_buried_heirlooms_newspaper.desc",
+        "spriteResourceIndex": 468,
+        "constructor": "0x14058CEE0"
+      }
+    },
+    {
+      "id": "p_lasers_free_buys",
+      "name": "Beamweaver Graduates",
+      "tier": 3,
+      "position": {
+        "row": 0,
+        "column": 0
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "The first [#8ccafa]1[c_white]/[#8ccafa]2[c_white] additional laser cannons you buy cost [#8ccafa]0[c_white] gold and [#8ccafa]0[c_white] mithril.",
+        "plainText": "The first 1/2 additional laser cannons you buy cost 0 gold and 0 mithril.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_lasers_free_buys.name",
+        "localizationDescriptionKey": "prestige.p_lasers_free_buys.desc",
+        "spriteResourceIndex": 493,
+        "constructor": "0x14058D280"
+      }
+    },
+    {
+      "id": "p_harpoons_free_buys",
+      "name": "Piercing Trainees",
+      "tier": 2,
+      "position": {
+        "row": 2,
+        "column": 1
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "The first [#8ccafa]1[c_white]/[#8ccafa]2[c_white] additional harpoon ballistae you buy cost [#8ccafa]0[c_white] gold.",
+        "plainText": "The first 1/2 additional harpoon ballistae you buy cost 0 gold.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_harpoons_free_buys.name",
+        "localizationDescriptionKey": "prestige.p_harpoons_free_buys.desc",
+        "spriteResourceIndex": 492,
+        "constructor": "0x14058D620"
+      }
+    },
+    {
+      "id": "p_turrets_gyro_calibration",
+      "name": "Gyro-Stabilized Emplacements",
+      "tier": 2,
+      "position": {
+        "row": 2,
+        "column": 2
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "The first [#8ccafa]1[c_white]/[#8ccafa]2[c_white] anti-rock turrets you buy cost [#8ccafa]0[c_white] gold.\n\nAdditionally anti-rock turrets get +[#8ccafa]75[c_white]/[#8ccafa]150[c_white]% turning-speed and +[#8ccafa]3[c_white]/[#8ccafa]6[c_white]% accuracy.",
+        "plainText": "The first 1/2 anti-rock turrets you buy cost 0 gold.\n\nAdditionally anti-rock turrets get +75/150% turning-speed and +3/6% accuracy.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_turrets_gyro_calibration.name",
+        "localizationDescriptionKey": "prestige.p_turrets_gyro_calibration.desc",
+        "spriteResourceIndex": 495,
+        "constructor": "0x14058D9B0"
+      }
+    },
+    {
+      "id": "p_manufactorum",
+      "name": "Manufactorum",
+      "tier": 3,
+      "position": {
+        "row": 0,
+        "column": 1
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Manufactorum.\n\nImmense factory, thundering with heavy metal, welding, and dwarven engineers ministering to the blessed machines.\n\nProduces Bulldozers who are expensive, but powerful ore collectors, that can also protect runners.\n\nProduces Gyrocopters, defensive collectors, who fire short-range beams at falling rocks, and fishing nets at falling ore.",
+        "plainText": "Unlocks Manufactorum.\n\nImmense factory, thundering with heavy metal, welding, and dwarven engineers ministering to the blessed machines.\n\nProduces Bulldozers who are expensive, but powerful ore collectors, that can also protect runners.\n\nProduces Gyrocopters, defensive collectors, who fire short-range beams at falling rocks, and fishing nets at falling ore.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_manufactorum.name",
+        "localizationDescriptionKey": "prestige.p_manufactorum.desc",
+        "spriteResourceIndex": 512,
+        "constructor": "0x14058DD40"
+      }
+    },
+    {
+      "id": "p_guaranteed_den_artifacts",
+      "name": "Fated Finds",
+      "tier": 2,
+      "position": {
+        "row": 2,
+        "column": 3
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "First [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] dens you destroy are guaranteed to drop one artifact.",
+        "plainText": "First 1/2/3 dens you destroy are guaranteed to drop one artifact.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_guaranteed_den_artifacts.name",
+        "localizationDescriptionKey": "prestige.p_guaranteed_den_artifacts.desc",
+        "spriteResourceIndex": 483,
+        "constructor": "0x14058E0E0"
+      }
+    },
+    {
+      "id": "p_auto_click_enabled",
+      "name": "Eternal Feasting",
+      "tier": 3,
+      "position": {
+        "row": 0,
+        "column": 2
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Makes mountain clicking automatic.\nWherever on the mountain you click last, that's where it will continue to be automatically clicked, regardless of where the cursor is.\n\nRight click on the mountain to toggle this upgrade ON/OFF.",
+        "plainText": "Makes mountain clicking automatic.\nWherever on the mountain you click last, that's where it will continue to be automatically clicked, regardless of where the cursor is.\n\nRight click on the mountain to toggle this upgrade ON/OFF.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_auto_click_enabled.name",
+        "localizationDescriptionKey": "prestige.p_auto_click_enabled.desc",
+        "spriteResourceIndex": 462,
+        "constructor": "0x14058E480"
+      }
+    },
+    {
+      "id": "p_ore_click_aoe",
+      "name": "Hand of God",
+      "tier": 4,
+      "position": {
+        "row": 0,
+        "column": 0
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Makes ore clicking affect all nearby ores in a [#8ccafa]small[c_white]/[#8ccafa]medium[c_white]/[#8ccafa]large[c_white] radius.",
+        "plainText": "Makes ore clicking affect all nearby ores in a small/medium/large radius.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_ore_click_aoe.name",
+        "localizationDescriptionKey": "prestige.p_ore_click_aoe.desc",
+        "spriteResourceIndex": 502,
+        "constructor": "0x14058E820"
+      }
+    },
+    {
+      "id": "p_click_damage_health_mul",
+      "name": "Rapturous Gaze",
+      "tier": 4,
+      "position": {
+        "row": 0,
+        "column": 1
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Clicking damage is increased by +[#8ccafa]0.002[c_white]/[#8ccafa]0.004[c_white]% of your total DPM, per tier of Ravenous Gaze upgrade.",
+        "plainText": "Clicking damage is increased by +0.002/0.004% of your total DPM, per tier of Ravenous Gaze upgrade.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_click_damage_health_mul.name",
+        "localizationDescriptionKey": "prestige.p_click_damage_health_mul.desc",
+        "spriteResourceIndex": 527,
+        "constructor": "0x14058EBC0"
+      }
+    },
+    {
+      "id": "p_homingmissile",
+      "name": "Rocket Salvo",
+      "tier": 3,
+      "position": {
+        "row": 0,
+        "column": 3
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks the Rocket Salvo upgrade for turrets in Ballistics Workshop.\n\nTurrets get chance when firing to also shoot an unguided rocket in the general direction of their target. The rocket will fly unpredictably and explode in a large radius.\nThe chance is increased by [#8ccafa]4[c_white]% for each tier of the Rocket Salvo prestige upgrade, and by [#8ccafa]0.1[c_white]% per scientist.",
+        "plainText": "Unlocks the Rocket Salvo upgrade for turrets in Ballistics Workshop.\n\nTurrets get chance when firing to also shoot an unguided rocket in the general direction of their target. The rocket will fly unpredictably and explode in a large radius.\nThe chance is increased by 4% for each tier of the Rocket Salvo prestige upgrade, and by 0.1% per scientist.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_homingmissile.name",
+        "localizationDescriptionKey": "prestige.p_homingmissile.desc",
+        "spriteResourceIndex": 532,
+        "constructor": "0x14058EF60"
+      }
+    },
+    {
+      "id": "p_bulldozer_rocket_salvo",
+      "name": "Advanced Bull Turret",
+      "tier": 4,
+      "position": {
+        "row": 0,
+        "column": 2
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Bulldozer turrets now also benefit from Rocket Salvo.\nAdditionally, they get +[#8ccafa]1[c_white] bullet per burst.",
+        "plainText": "Bulldozer turrets now also benefit from Rocket Salvo.\nAdditionally, they get +1 bullet per burst.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_bulldozer_rocket_salvo.name",
+        "localizationDescriptionKey": "prestige.p_bulldozer_rocket_salvo.desc",
+        "spriteResourceIndex": 467,
+        "constructor": "0x14058F300"
+      }
+    },
+    {
+      "id": "p_forge_staff_on_build",
+      "name": "Runesmith Clan",
+      "tier": 2,
+      "position": {
+        "row": 2,
+        "column": 4
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "When you build The Forge, it comes with [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] Runesmiths.",
+        "plainText": "When you build The Forge, it comes with 1/2/3 Runesmiths.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_forge_staff_on_build.name",
+        "localizationDescriptionKey": "prestige.p_forge_staff_on_build.desc",
+        "spriteResourceIndex": 533,
+        "constructor": "0x14058F6A0"
+      }
+    },
+    {
+      "id": "p_laboratory_staff_on_build",
+      "name": "Scientist Clan",
+      "tier": 2,
+      "position": {
+        "row": 2,
+        "column": 5
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "When you build Grand Laboratory, it comes with [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] Scientists.",
+        "plainText": "When you build Grand Laboratory, it comes with 1/2/3 Scientists.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_laboratory_staff_on_build.name",
+        "localizationDescriptionKey": "prestige.p_laboratory_staff_on_build.desc",
+        "spriteResourceIndex": 534,
+        "constructor": "0x14058FA40"
+      }
+    },
+    {
+      "id": "p_miners_power",
+      "name": "Ancestor's Picks",
+      "tier": 2,
+      "position": {
+        "row": 2,
+        "column": 6
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Miners get +[#8ccafa]15[c_white]/[#8ccafa]30[c_white]/[#8ccafa]45[c_white]/[#8ccafa]60[c_white]% Damage and +[#8ccafa]3[c_white]/[#8ccafa]6[c_white]/[#8ccafa]9[c_white]/[#8ccafa]12[c_white] Luck.",
+        "plainText": "Miners get +15/30/45/60% Damage and +3/6/9/12 Luck.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_miners_power.name",
+        "localizationDescriptionKey": "prestige.p_miners_power.desc",
+        "spriteResourceIndex": 455,
+        "constructor": "0x14058FDE0"
+      }
+    },
+    {
+      "id": "p_harpoons_menace",
+      "name": "Ballista Lore",
+      "tier": 3,
+      "position": {
+        "row": 0,
+        "column": 4
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Harpoons get +[#8ccafa]7[c_white]/[#8ccafa]14[c_white]/[#8ccafa]21[c_white]/[#8ccafa]28[c_white]% damage and +[#8ccafa]5[c_white]/[#8ccafa]10[c_white]/[#8ccafa]15[c_white]/[#8ccafa]20[c_white]% crit.",
+        "plainText": "Harpoons get +7/14/21/28% damage and +5/10/15/20% crit.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_harpoons_menace.name",
+        "localizationDescriptionKey": "prestige.p_harpoons_menace.desc",
+        "spriteResourceIndex": 463,
+        "constructor": "0x140590180"
+      }
+    },
+    {
+      "id": "p_demobombs_power",
+      "name": "Powder Keg Lineage",
+      "tier": 2,
+      "position": {
+        "row": 3,
+        "column": 0
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Demodwarves get +[#8ccafa]12[c_white]/[#8ccafa]24[c_white]/[#8ccafa]36[c_white]/[#8ccafa]48[c_white]% damage and +[#8ccafa]2[c_white]/[#8ccafa]3[c_white]/[#8ccafa]4[c_white]/[#8ccafa]5[c_white] force. Wind Bomb also gets that much explosive force.",
+        "plainText": "Demodwarves get +12/24/36/48% damage and +2/3/4/5 force. Wind Bomb also gets that much explosive force.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_demobombs_power.name",
+        "localizationDescriptionKey": "prestige.p_demobombs_power.desc",
+        "spriteResourceIndex": 523,
+        "constructor": "0x140590520"
+      }
+    },
+    {
+      "id": "p_infernal_symphony_luck",
+      "name": "Infernal Fortune",
+      "tier": 3,
+      "position": {
+        "row": 0,
+        "column": 5
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Flamer's Infernal Symphony also gives +[#8ccafa]20[c_white]%/[#8ccafa]40[c_white]% Luck to the damage source.",
+        "plainText": "Flamer's Infernal Symphony also gives +20%/40% Luck to the damage source.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_infernal_symphony_luck.name",
+        "localizationDescriptionKey": "prestige.p_infernal_symphony_luck.desc",
+        "spriteResourceIndex": 508,
+        "constructor": "0x1405908C0"
+      }
+    },
+    {
+      "id": "p_all_luck_and_gemluck",
+      "name": "Favored by Fortune",
+      "tier": 3,
+      "position": {
+        "row": 0,
+        "column": 6
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "All dwarves gain +[#8ccafa]4[c_white]/[#8ccafa]8[c_white]/[#8ccafa]12[c_white]/[#8ccafa]16[c_white] Luck and +[#8ccafa]0.04[c_white]/[#8ccafa]0.08[c_white]/[#8ccafa]0.12[c_white]/[#8ccafa]0.16[c_white] Gem-Luck.",
+        "plainText": "All dwarves gain +4/8/12/16 Luck and +0.04/0.08/0.12/0.16 Gem-Luck.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_all_luck_and_gemluck.name",
+        "localizationDescriptionKey": "prestige.p_all_luck_and_gemluck.desc",
+        "spriteResourceIndex": 484,
+        "constructor": "0x140590C60"
+      }
+    },
+    {
+      "id": "p_laser_beam_mastery",
+      "name": "Beam Mastery",
+      "tier": 3,
+      "position": {
+        "row": 1,
+        "column": 0
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Laser Cannons gets +[#8ccafa]4[c_white]/[#8ccafa]8[c_white]/[#8ccafa]12[c_white]/[#8ccafa]16[c_white]% crit and +[#8ccafa]0.08[c_white]/[#8ccafa]0.16[c_white]/[#8ccafa]0.24[c_white]/[#8ccafa]0.32[c_white] gem-luck.",
+        "plainText": "Laser Cannons gets +4/8/12/16% crit and +0.08/0.16/0.24/0.32 gem-luck.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_laser_beam_mastery.name",
+        "localizationDescriptionKey": "prestige.p_laser_beam_mastery.desc",
+        "spriteResourceIndex": 464,
+        "constructor": "0x140591000"
+      }
+    },
+    {
+      "id": "p_harpoon_geyser",
+      "name": "Deep Penetration",
+      "tier": 3,
+      "position": {
+        "row": 1,
+        "column": 1
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Whenever a harpoon deals damage to a mountain, there's a [#8ccafa]2[c_white]/[#8ccafa]3[c_white]/[#8ccafa]4[c_white]% chance it hits a juicy vein which erupts in a geyser of gems! The chance is increased by [#8ccafa]0.004[c_white]% per damage + [#8ccafa]0.1[c_white]% for each scientist and runesmith + [#8ccafa]0.01[c_white]% per luck (max 35%).",
+        "plainText": "Whenever a harpoon deals damage to a mountain, there's a 2/3/4% chance it hits a juicy vein which erupts in a geyser of gems! The chance is increased by 0.004% per damage + 0.1% for each scientist and runesmith + 0.01% per luck (max 35%).",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_harpoon_geyser.name",
+        "localizationDescriptionKey": "prestige.p_harpoon_geyser.desc",
+        "spriteResourceIndex": 474,
+        "constructor": "0x1405913A0"
+      }
+    },
+    {
+      "id": "p_mountain_artifact_chance",
+      "name": "Mountain's Buried Treasures",
+      "tier": 3,
+      "position": {
+        "row": 1,
+        "column": 2
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Every time you consume a mountain you have [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white]% chance for it to eject a random artifact. The chance is increased by [#8ccafa]0.03[c_white]% per runesmith and scientist.",
+        "plainText": "Every time you consume a mountain you have 1/2/3% chance for it to eject a random artifact. The chance is increased by 0.03% per runesmith and scientist.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_mountain_artifact_chance.name",
+        "localizationDescriptionKey": "prestige.p_mountain_artifact_chance.desc",
+        "spriteResourceIndex": 469,
+        "constructor": "0x140591740"
+      }
+    },
+    {
+      "id": "p_runner_blast_shield",
+      "name": "Blast Aegis",
+      "tier": 2,
+      "position": {
+        "row": 3,
+        "column": 1
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Whenever a dynamite or wind bomb explosion hits a runner, even on a dodge, there is a [#8ccafa]60[c_white]/[#8ccafa]100[c_white]% chance to bestow a magical forcefield which shields them from falling rocks for [#8ccafa]15-30[c_white] seconds.",
+        "plainText": "Whenever a dynamite or wind bomb explosion hits a runner, even on a dodge, there is a 60/100% chance to bestow a magical forcefield which shields them from falling rocks for 15-30 seconds.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_runner_blast_shield.name",
+        "localizationDescriptionKey": "prestige.p_runner_blast_shield.desc",
+        "spriteResourceIndex": 465,
+        "constructor": "0x140591AE0"
+      }
+    },
+    {
+      "id": "p_dynamite_safe_impact",
+      "name": "Controlled Demolition",
+      "tier": 4,
+      "position": {
+        "row": 0,
+        "column": 3
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Dynamite now always explodes when it hits the mountain, and it no longer knocks back runners or scatters ores.",
+        "plainText": "Dynamite now always explodes when it hits the mountain, and it no longer knocks back runners or scatters ores.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_dynamite_safe_impact.name",
+        "localizationDescriptionKey": "prestige.p_dynamite_safe_impact.desc",
+        "spriteResourceIndex": 471,
+        "constructor": "0x140591E80"
+      }
+    },
+    {
+      "id": "p_soul_per_10_calamities",
+      "name": "Soul Tithes",
+      "tier": 3,
+      "position": {
+        "row": 1,
+        "column": 3
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "You get +[#8ccafa]1[c_white] Soul for every [#8ccafa]72[c_white] calamities you trigger.",
+        "plainText": "You get +1 Soul for every 72 calamities you trigger.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_soul_per_10_calamities.name",
+        "localizationDescriptionKey": "prestige.p_soul_per_10_calamities.desc",
+        "spriteResourceIndex": 541,
+        "constructor": "0x140592220"
+      }
+    },
+    {
+      "id": "p_spelunkers_guild",
+      "name": "Spelunker's Guild",
+      "tier": 3,
+      "position": {
+        "row": 1,
+        "column": 4
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Spelunker's Guild.\n\nSpecializes in treasure and mithril acquisition.\n\nProduces spelunkers and treasure hunters who delve deep into the underbowels of the mountain, seeking artifacts and ancient riches. Some may even return back home.",
+        "plainText": "Unlocks Spelunker's Guild.\n\nSpecializes in treasure and mithril acquisition.\n\nProduces spelunkers and treasure hunters who delve deep into the underbowels of the mountain, seeking artifacts and ancient riches. Some may even return back home.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_spelunkers_guild.name",
+        "localizationDescriptionKey": "prestige.p_spelunkers_guild.desc",
+        "spriteResourceIndex": 543,
+        "constructor": "0x1405925C0"
+      }
+    },
+    {
+      "id": "p_meadhall",
+      "name": "Meadhall",
+      "tier": 4,
+      "position": {
+        "row": 0,
+        "column": 4
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "[c_white]Unlocks Meadhall.\n\nWhere beer is brewed and consumed. The great hall itself exhudes an aura of revelry.\n\n[c_white]Produces Brewmasters who throw beer kegs at dwarves, buffing them.\n\nCan concoct special brews. Some are so potent they can even transmute ore into gems.",
+        "plainText": "Unlocks Meadhall.\n\nWhere beer is brewed and consumed. The great hall itself exhudes an aura of revelry.\n\nProduces Brewmasters who throw beer kegs at dwarves, buffing them.\n\nCan concoct special brews. Some are so potent they can even transmute ore into gems.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_meadhall.name",
+        "localizationDescriptionKey": "prestige.p_meadhall.desc",
+        "spriteResourceIndex": 517,
+        "constructor": "0x140592960"
+      }
+    },
+    {
+      "id": "p_holy_pickaxe",
+      "name": "Holy Pickaxe",
+      "tier": 2,
+      "position": {
+        "row": 3,
+        "column": 2
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Whenever a miner throws the pickaxe it has [#8ccafa]2[c_white]/[#8ccafa]4[c_white]% chance to transform into a golden pickaxe blessed by divine light, with +[#8ccafa]30[c_white]% flat Crit Damage and +[#8ccafa]40[c_white] Luck. The chance is increased by [#8ccafa]0.04[c_white]% per luck and by [#8ccafa]1[c_white]% per priest.",
+        "plainText": "Whenever a miner throws the pickaxe it has 2/4% chance to transform into a golden pickaxe blessed by divine light, with +30% flat Crit Damage and +40 Luck. The chance is increased by 0.04% per luck and by 1% per priest.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_holy_pickaxe.name",
+        "localizationDescriptionKey": "prestige.p_holy_pickaxe.desc",
+        "spriteResourceIndex": 506,
+        "constructor": "0x140592D00"
+      }
+    },
+    {
+      "id": "p_start_dwarves_per_pp",
+      "name": "Stalwart Legacy",
+      "tier": 4,
+      "position": {
+        "row": 0,
+        "column": 5
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with +[#8ccafa]1[c_white] dwarf for every [#8ccafa]12[c_white] PP spent.",
+        "plainText": "Start the game with +1 dwarf for every 12 PP spent.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_start_dwarves_per_pp.name",
+        "localizationDescriptionKey": "prestige.p_start_dwarves_per_pp.desc",
+        "spriteResourceIndex": 545,
+        "constructor": "0x1405930A0"
+      }
+    },
+    {
+      "id": "p_den_hp_less",
+      "name": "Undermined Foundations",
+      "tier": 3,
+      "position": {
+        "row": 1,
+        "column": 5
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Dens have [#8ccafa]50[c_white]% chance to have [#8ccafa]8[c_white]/[#8ccafa]16[c_white]/[#8ccafa]24[c_white]% less base health.",
+        "plainText": "Dens have 50% chance to have 8/16/24% less base health.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_den_hp_less.name",
+        "localizationDescriptionKey": "prestige.p_den_hp_less.desc",
+        "spriteResourceIndex": 549,
+        "constructor": "0x140593440"
+      }
+    },
+    {
+      "id": "p_key_drop_chance_increase",
+      "name": "Key Master",
+      "tier": 3,
+      "position": {
+        "row": 1,
+        "column": 6
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 3,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 3,
+          "prestigePointsSpent": 50
+        }
+      ],
+      "effect": {
+        "gameText": "Increases the chance of dropping the ruby, sapphire and emerald keys by [#8ccafa]40[c_white]/[#8ccafa]80[c_white]/[#8ccafa]120[c_white]/[#8ccafa]160[c_white]%.",
+        "plainText": "Increases the chance of dropping the ruby, sapphire and emerald keys by 40/80/120/160%.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_key_drop_chance_increase.name",
+        "localizationDescriptionKey": "prestige.p_key_drop_chance_increase.desc",
+        "spriteResourceIndex": 509,
+        "constructor": "0x1405937E0"
+      }
+    },
+    {
+      "id": "p_rituals_cost_less",
+      "name": "Ascetic Rites",
+      "tier": 4,
+      "position": {
+        "row": 0,
+        "column": 6
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Rituals cost [#8ccafa]15[c_white]/[#8ccafa]30[c_white]/[#8ccafa]45[c_white]% less gold.",
+        "plainText": "Rituals cost 15/30/45% less gold.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_rituals_cost_less.name",
+        "localizationDescriptionKey": "prestige.p_rituals_cost_less.desc",
+        "spriteResourceIndex": 461,
+        "constructor": "0x140593B80"
+      }
+    },
+    {
+      "id": "p_rituals_cd_less",
+      "name": "Relentless Liturgies",
+      "tier": 4,
+      "position": {
+        "row": 1,
+        "column": 0
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Rituals have [#8ccafa]12[c_white]/[#8ccafa]24[c_white]/[#8ccafa]36[c_white]% lower cooldown.",
+        "plainText": "Rituals have 12/24/36% lower cooldown.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_rituals_cd_less.name",
+        "localizationDescriptionKey": "prestige.p_rituals_cd_less.desc",
+        "spriteResourceIndex": 528,
+        "constructor": "0x140593F20"
+      }
+    },
+    {
+      "id": "p_railgun",
+      "name": "Turret Railgun",
+      "tier": 4,
+      "position": {
+        "row": 1,
+        "column": 1
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks a Railgun upgrade that converts one Anti-Rock Turret into a railgun.\n\nRailgun turrets fire piercing beams, obliterating rocks in their path.",
+        "plainText": "Unlocks a Railgun upgrade that converts one Anti-Rock Turret into a railgun.\n\nRailgun turrets fire piercing beams, obliterating rocks in their path.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_railgun.name",
+        "localizationDescriptionKey": "prestige.p_railgun.desc",
+        "spriteResourceIndex": 526,
+        "constructor": "0x1405942C0"
+      }
+    },
+    {
+      "id": "p_damage_per_4_housings",
+      "name": "Martial Culture",
+      "tier": 4,
+      "position": {
+        "row": 1,
+        "column": 2
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "All dwarves gain +[#8ccafa]4[c_white]/[#8ccafa]6[c_white]/[#8ccafa]8[c_white]% damage for every [#8ccafa]4[c_white] Underground Housings built.",
+        "plainText": "All dwarves gain +4/6/8% damage for every 4 Underground Housings built.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_damage_per_4_housings.name",
+        "localizationDescriptionKey": "prestige.p_damage_per_4_housings.desc",
+        "spriteResourceIndex": 515,
+        "constructor": "0x140594660"
+      }
+    },
+    {
+      "id": "p_soulbound_legacy",
+      "name": "Soulbound Legacy",
+      "tier": 2,
+      "position": {
+        "row": 3,
+        "column": 3
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with +[#8ccafa]1[c_white] Soul.",
+        "plainText": "Start the game with +1 Soul.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_soulbound_legacy.name",
+        "localizationDescriptionKey": "prestige.p_soulbound_legacy.desc",
+        "spriteResourceIndex": 539,
+        "constructor": "0x140594A00"
+      }
+    },
+    {
+      "id": "p_soul_echoes",
+      "name": "Soul Echoes",
+      "tier": 2,
+      "position": {
+        "row": 3,
+        "column": 4
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 2,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 2,
+          "prestigePointsSpent": 12
+        }
+      ],
+      "effect": {
+        "gameText": "Whenever you spend a Soul, gain +[#8ccafa]1[c_white] Dwarf.",
+        "plainText": "Whenever you spend a Soul, gain +1 Dwarf.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_soul_echoes.name",
+        "localizationDescriptionKey": "prestige.p_soul_echoes.desc",
+        "spriteResourceIndex": 540,
+        "constructor": "0x140594DA0"
+      }
+    },
+    {
+      "id": "p_enchant_more_uses",
+      "name": "Master Enchanters",
+      "tier": 4,
+      "position": {
+        "row": 1,
+        "column": 3
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Enchantments can now be enchanted up to [#8ccafa]6[c_white]/[#8ccafa]8[c_white] times per dwarf.",
+        "plainText": "Enchantments can now be enchanted up to 6/8 times per dwarf.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_enchant_more_uses.name",
+        "localizationDescriptionKey": "prestige.p_enchant_more_uses.desc",
+        "spriteResourceIndex": 516,
+        "constructor": "0x140595140"
+      }
+    },
+    {
+      "id": "p_yeeti_arms",
+      "name": "Yeeti Arms",
+      "tier": 4,
+      "position": {
+        "row": 1,
+        "column": 4
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Rank 1 reduces Gorilla Arms YEET cooldown by [#8ccafa]50[c_white]%.\n\nRank 2 makes runners start the run with Gorilla Arms already purchased.\n\nRank 3 removes the Gorilla Arms YEET cooldown entirely.\n\nRank 4 makes the last Gorilla Arms tier raise the YEET chance maximum cap from [#8ccafa]15[c_white]% to [#8ccafa]100[c_white]%.",
+        "plainText": "Rank 1 reduces Gorilla Arms YEET cooldown by 50%.\n\nRank 2 makes runners start the run with Gorilla Arms already purchased.\n\nRank 3 removes the Gorilla Arms YEET cooldown entirely.\n\nRank 4 makes the last Gorilla Arms tier raise the YEET chance maximum cap from 15% to 100%.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_yeeti_arms.name",
+        "localizationDescriptionKey": "prestige.p_yeeti_arms.desc",
+        "spriteResourceIndex": 554,
+        "constructor": "0x1405954E0"
+      }
+    },
+    {
+      "id": "p_laser_gem_legacy",
+      "name": "Gemcraft",
+      "tier": 4,
+      "position": {
+        "row": 1,
+        "column": 5
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Laser Cannon's Gem Harvester gets +[#8ccafa]1[c_white]%/[#8ccafa]2[c_white]% chance to spawn gems, and its Quantum Scrambler gets +[#8ccafa]0.05[c_white]%/[#8ccafa]0.1[c_white]% chance per scientist to spawn a gem geyser.",
+        "plainText": "Laser Cannon's Gem Harvester gets +1%/2% chance to spawn gems, and its Quantum Scrambler gets +0.05%/0.1% chance per scientist to spawn a gem geyser.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_laser_gem_legacy.name",
+        "localizationDescriptionKey": "prestige.p_laser_gem_legacy.desc",
+        "spriteResourceIndex": 496,
+        "constructor": "0x140595880"
+      }
+    },
+    {
+      "id": "p_ph567",
+      "name": "Flamelords",
+      "tier": 4,
+      "position": {
+        "row": 1,
+        "column": 6
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks the Flamelord upgrade in Flameworks.\n\nConverts one Flamer into a Flamelord, who shoots exploding fireballs instead of bolts.",
+        "plainText": "Unlocks the Flamelord upgrade in Flameworks.\n\nConverts one Flamer into a Flamelord, who shoots exploding fireballs instead of bolts.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_ph567.name",
+        "localizationDescriptionKey": "prestige.p_ph567.desc",
+        "spriteResourceIndex": 486,
+        "constructor": "0x140595C20"
+      }
+    },
+    {
+      "id": "p_geode_sanctum",
+      "name": "Geode Sanctum",
+      "tier": 4,
+      "position": {
+        "row": 2,
+        "column": 0
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Geode Sanctum.\n\nInside this colossal, shimmering shell, the Stonecallers stand amidst a forest of glowing quartz, to conduct the Mother's song.\n\n[c_white]Produces Stonecallers. Magical dwarves who use geomantic forces to lift and pull rocks into the stash from afar.\n\nUnlocks rituals and transmutation magic.",
+        "plainText": "Unlocks Geode Sanctum.\n\nInside this colossal, shimmering shell, the Stonecallers stand amidst a forest of glowing quartz, to conduct the Mother's song.\n\nProduces Stonecallers. Magical dwarves who use geomantic forces to lift and pull rocks into the stash from afar.\n\nUnlocks rituals and transmutation magic.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_geode_sanctum.name",
+        "localizationDescriptionKey": "prestige.p_geode_sanctum.desc",
+        "spriteResourceIndex": 497,
+        "constructor": "0x140595FC0"
+      }
+    },
+    {
+      "id": "p_shrine",
+      "name": "Shrine",
+      "tier": 5,
+      "position": {
+        "row": 0,
+        "column": 0
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 5,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 5,
+          "prestigePointsSpent": 180
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Shrine building.\n\nProduces priests, who alongside unemployed dwarves, yield Faith.\n\nSpecializes into [#8ccafa]1[c_white] of [#8ccafa]4[c_white] different gods, which grants access to unique boons and powerful rituals.",
+        "plainText": "Unlocks Shrine building.\n\nProduces priests, who alongside unemployed dwarves, yield Faith.\n\nSpecializes into 1 of 4 different gods, which grants access to unique boons and powerful rituals.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_shrine.name",
+        "localizationDescriptionKey": "prestige.p_shrine.desc",
+        "spriteResourceIndex": 536,
+        "constructor": "0x140596360"
+      }
+    },
+    {
+      "id": "p_explosives_kit",
+      "name": "Explosives Kit",
+      "tier": 4,
+      "position": {
+        "row": 2,
+        "column": 1
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Explosives Kit upgrade in the Spelunker's Guild.\n\nSpelunkers are now kitted with timed explosives, which they plant deep inside the mountain as a parting gift.\n\n[c_white]Whenever a spelunker returns, he deals damage to the mountain equal % of its max health!\nThe % of damage inflicted is increased per underground mapping.\n\nHowever, equipping spelunkers with high-explosives makes their journey far more dangerous, increasing the odds of injury and death by [#8ccafa]15[c_white]% per tier!",
+        "plainText": "Unlocks Explosives Kit upgrade in the Spelunker's Guild.\n\nSpelunkers are now kitted with timed explosives, which they plant deep inside the mountain as a parting gift.\n\nWhenever a spelunker returns, he deals damage to the mountain equal % of its max health!\nThe % of damage inflicted is increased per underground mapping.\n\nHowever, equipping spelunkers with high-explosives makes their journey far more dangerous, increasing the odds of injury and death by 15% per tier!",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_explosives_kit.name",
+        "localizationDescriptionKey": "prestige.p_explosives_kit.desc",
+        "spriteResourceIndex": 482,
+        "constructor": "0x140596700"
+      }
+    },
+    {
+      "id": "p_mapped_destruction",
+      "name": "Mapped Destruction",
+      "tier": 4,
+      "position": {
+        "row": 2,
+        "column": 2
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        },
+        {
+          "kind": "run-upgrade-tier",
+          "upgradeId": "powder_hall",
+          "name": "Powder Hall",
+          "minimumTier": 3
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Mapped Destruction upgrade in the Demolition Shack. Also requires Powder Hall tier 3.\n\nMapped Destruction:\nWith the Mother's underbelly surveyed, the carnage can be delivered with critical precision.\n\n[c_white]Demodwarves get +% damage per Underground Mapping.",
+        "plainText": "Unlocks Mapped Destruction upgrade in the Demolition Shack. Also requires Powder Hall tier 3.\n\nMapped Destruction:\nWith the Mother's underbelly surveyed, the carnage can be delivered with critical precision.\n\nDemodwarves get +% damage per Underground Mapping.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_mapped_destruction.name",
+        "localizationDescriptionKey": "prestige.p_mapped_destruction.desc",
+        "spriteResourceIndex": 513,
+        "constructor": "0x140596AA0"
+      }
+    },
+    {
+      "id": "p_all_mithril_luck",
+      "name": "Greyglitter Leylines",
+      "tier": 4,
+      "position": {
+        "row": 2,
+        "column": 3
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "All dwarves get +[#8ccafa]2[c_white]/[#8ccafa]3[c_white]/[#8ccafa]4[c_white] mithril-luck.",
+        "plainText": "All dwarves get +2/3/4 mithril-luck.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_all_mithril_luck.name",
+        "localizationDescriptionKey": "prestige.p_all_mithril_luck.desc",
+        "spriteResourceIndex": 500,
+        "constructor": "0x140596E40"
+      }
+    },
+    {
+      "id": "p_cluster_pick",
+      "name": "C.L.U.S.T.E.R.P.I.C.K.",
+      "tier": 4,
+      "position": {
+        "row": 2,
+        "column": 4
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        },
+        {
+          "kind": "run-upgrade-tier",
+          "upgradeId": "cyberdwarf",
+          "name": "Cyberdwarf",
+          "minimumTier": 2
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks the C.L.U.S.T.E.R.P.I.C.K. upgrade in Miner's Guild. Also requires Cyberdwarf tier 2.\n\nMoments after a pickaxe is thrown, it has a % chance to erupt into a cluster of [#8ccafa]2[c_white]-[#8ccafa]4[c_white] smaller pickaxes, with 50% lower damage but otherwise identical stats. The chance is increased by [#8ccafa]1[c_white]% per Cyberdwarf tier.",
+        "plainText": "Unlocks the C.L.U.S.T.E.R.P.I.C.K. upgrade in Miner's Guild. Also requires Cyberdwarf tier 2.\n\nMoments after a pickaxe is thrown, it has a % chance to erupt into a cluster of 2-4 smaller pickaxes, with 50% lower damage but otherwise identical stats. The chance is increased by 1% per Cyberdwarf tier.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_cluster_pick.name",
+        "localizationDescriptionKey": "prestige.p_cluster_pick.desc",
+        "spriteResourceIndex": 470,
+        "constructor": "0x1405971E0"
+      }
+    },
+    {
+      "id": "p_alchemy",
+      "name": "Alchemy",
+      "tier": 4,
+      "position": {
+        "row": 2,
+        "column": 5
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks the Alchemy ritual and the Alkahest Aperture upgrade, in the Grand Laboratory.\n\nAlchemy yields one random outcome, which can be beneficial or detrimental.\n\nThe ultimate purpose of alchemy is finding the Philosopher's Stone, which is required to access The Great World Spire.",
+        "plainText": "Unlocks the Alchemy ritual and the Alkahest Aperture upgrade, in the Grand Laboratory.\n\nAlchemy yields one random outcome, which can be beneficial or detrimental.\n\nThe ultimate purpose of alchemy is finding the Philosopher's Stone, which is required to access The Great World Spire.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_alchemy.name",
+        "localizationDescriptionKey": "prestige.p_alchemy.desc",
+        "spriteResourceIndex": 453,
+        "constructor": "0x140597580"
+      }
+    },
+    {
+      "id": "p_nuclear_research",
+      "name": "Nuclear Research",
+      "tier": 4,
+      "position": {
+        "row": 2,
+        "column": 6
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 4,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 4,
+          "prestigePointsSpent": 125
+        },
+        {
+          "kind": "run-upgrade-tier",
+          "upgradeId": "powder_hall",
+          "name": "Powder Hall",
+          "minimumTier": 4
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks the Nuclear Research upgrade in the Artillery Hall. Also requires Powder Hall tier 4.",
+        "plainText": "Unlocks the Nuclear Research upgrade in the Artillery Hall. Also requires Powder Hall tier 4.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_nuclear_research.name",
+        "localizationDescriptionKey": "prestige.p_nuclear_research.desc",
+        "spriteResourceIndex": 519,
+        "constructor": "0x140597920"
+      }
+    },
+    {
+      "id": "p_artifacts_dont_perish",
+      "name": "Vault of Kings",
+      "tier": 5,
+      "position": {
+        "row": 0,
+        "column": 1
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 5,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 5,
+          "prestigePointsSpent": 180
+        }
+      ],
+      "effect": {
+        "gameText": "When prestiging, you keep [#8ccafa]1[c_white]/[#8ccafa]2[c_white]/[#8ccafa]3[c_white] random artifacts from the previous run.",
+        "plainText": "When prestiging, you keep 1/2/3 random artifacts from the previous run.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_artifacts_dont_perish.name",
+        "localizationDescriptionKey": "prestige.p_artifacts_dont_perish.desc",
+        "spriteResourceIndex": 552,
+        "constructor": "0x140597CC0"
+      }
+    },
+    {
+      "id": "p_artifacts_perish_not",
+      "name": "Divine Relic",
+      "tier": 5,
+      "position": {
+        "row": 0,
+        "column": 2
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 5,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 5,
+          "prestigePointsSpent": 180
+        }
+      ],
+      "effect": {
+        "gameText": "When prestiging, you get to keep [#8ccafa]1[c_white] artifact of your choice from the previous run.\n\nYou cannot select PP giving artifacts.",
+        "plainText": "When prestiging, you get to keep 1 artifact of your choice from the previous run.\n\nYou cannot select PP giving artifacts.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_artifacts_perish_not.name",
+        "localizationDescriptionKey": "prestige.p_artifacts_perish_not.desc",
+        "spriteResourceIndex": 477,
+        "constructor": "0x140598060"
+      }
+    },
+    {
+      "id": "p_damage_per_underground_mapping",
+      "name": "Speleological Domination",
+      "tier": 5,
+      "position": {
+        "row": 0,
+        "column": 3
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [],
+      "costPerRank": 5,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 5,
+          "prestigePointsSpent": 180
+        }
+      ],
+      "effect": {
+        "gameText": "All dwarves gain +[#8ccafa]0.2[c_white]/[#8ccafa]0.3[c_white]% damage per Underground Mapping.",
+        "plainText": "All dwarves gain +0.2/0.3% damage per Underground Mapping.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_damage_per_underground_mapping.name",
+        "localizationDescriptionKey": "prestige.p_damage_per_underground_mapping.desc",
+        "spriteResourceIndex": 542,
+        "constructor": "0x140598400"
+      }
+    },
+    {
+      "id": "p_siege_den_momentum",
+      "name": "Denbreakers",
+      "tier": 5,
+      "position": {
+        "row": 0,
+        "column": 4
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [],
+      "costPerRank": 5,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 5,
+          "prestigePointsSpent": 180
+        }
+      ],
+      "effect": {
+        "gameText": "Unlocks Denbreaker's Rain in the Ballistics Workshop and Denbreaker's Hail in the Artillery Hall.\n\nEach upgrade grants retrospective unit permanent +% damage whenever they destroy a den.",
+        "plainText": "Unlocks Denbreaker's Rain in the Ballistics Workshop and Denbreaker's Hail in the Artillery Hall.\n\nEach upgrade grants retrospective unit permanent +% damage whenever they destroy a den.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_siege_den_momentum.name",
+        "localizationDescriptionKey": "prestige.p_siege_den_momentum.desc",
+        "spriteResourceIndex": 475,
+        "constructor": "0x1405987A0"
+      }
+    },
+    {
+      "id": "p_dwarves_cost_per_brewmaster",
+      "name": "High-Functioning Alcoholics",
+      "tier": 5,
+      "position": {
+        "row": 0,
+        "column": 5
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 5,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 5,
+          "prestigePointsSpent": 180
+        }
+      ],
+      "effect": {
+        "gameText": "All dwarves cost [#8ccafa]0.3[c_white]/[#8ccafa]0.4[c_white]/[#8ccafa]0.5[c_white]% less gold for each Brewmaster (50% max).",
+        "plainText": "All dwarves cost 0.3/0.4/0.5% less gold for each Brewmaster (50% max).",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_dwarves_cost_per_brewmaster.name",
+        "localizationDescriptionKey": "prestige.p_dwarves_cost_per_brewmaster.desc",
+        "spriteResourceIndex": 454,
+        "constructor": "0x140598B40"
+      }
+    },
+    {
+      "id": "p_dwarves_cd_reduction",
+      "name": "Lust For Rock And Stone",
+      "tier": 5,
+      "position": {
+        "row": 0,
+        "column": 6
+      },
+      "maxRank": 4,
+      "repeatable": false,
+      "nativeMaxPurchases": 4,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 4
+      },
+      "rankRequirements": [],
+      "costPerRank": 5,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 5,
+          "prestigePointsSpent": 180
+        }
+      ],
+      "effect": {
+        "gameText": "All dwarves get +[#8ccafa]4[c_white]/[#8ccafa]8[c_white]/[#8ccafa]12[c_white]/[#8ccafa]16[c_white]% cooldown reduction.",
+        "plainText": "All dwarves get +4/8/12/16% cooldown reduction.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_dwarves_cd_reduction.name",
+        "localizationDescriptionKey": "prestige.p_dwarves_cd_reduction.desc",
+        "spriteResourceIndex": 511,
+        "constructor": "0x140598EE0"
+      }
+    },
+    {
+      "id": "p_At6_keep_artifacts_choice",
+      "name": "Vault of Gods",
+      "tier": 6,
+      "position": {
+        "row": 0,
+        "column": 0
+      },
+      "maxRank": 5,
+      "repeatable": false,
+      "nativeMaxPurchases": 5,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 5
+      },
+      "rankRequirements": [
+        {
+          "rank": 1,
+          "minimumAscensionRank": 0
+        },
+        {
+          "rank": 2,
+          "minimumAscensionRank": 2
+        },
+        {
+          "rank": 3,
+          "minimumAscensionRank": 4
+        },
+        {
+          "rank": 4,
+          "minimumAscensionRank": 6
+        },
+        {
+          "rank": 5,
+          "minimumAscensionRank": 8
+        }
+      ],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "When prestiging, you get to keep [#8ccafa]1/2/3/4/5[c_white] additional artifacts of your choice from the previous run.\n\nYou cannot select PP giving artifacts.\n\nYou can buy this upgrade at Ascension rank [#8ccafa]0/2/4/6/8[c_white].",
+        "plainText": "When prestiging, you get to keep 1/2/3/4/5 additional artifacts of your choice from the previous run.\n\nYou cannot select PP giving artifacts.\n\nYou can buy this upgrade at Ascension rank 0/2/4/6/8.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_At6_keep_artifacts_choice.name",
+        "localizationDescriptionKey": "prestige.p_At6_keep_artifacts_choice.desc",
+        "spriteResourceIndex": 551,
+        "constructor": "0x140599280"
+      }
+    },
+    {
+      "id": "p_t6_keep_t5_artifacts",
+      "name": "Divine Archives",
+      "tier": 6,
+      "position": {
+        "row": 0,
+        "column": 1
+      },
+      "maxRank": 1,
+      "repeatable": false,
+      "nativeMaxPurchases": 1,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 1
+      },
+      "rankRequirements": [
+        {
+          "rank": 1,
+          "minimumAscensionRank": 1
+        }
+      ],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [
+        {
+          "kind": "extends-prestige-effect",
+          "targetUpgradeId": "p_artifacts_perish_not",
+          "targetName": "Divine Relic",
+          "minimumSourceRank": 1
+        },
+        {
+          "kind": "extends-prestige-effect",
+          "targetUpgradeId": "p_At6_keep_artifacts_choice",
+          "targetName": "Vault of Gods",
+          "minimumSourceRank": 1
+        }
+      ],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "You can now select T5 artifacts with Divine Relic and Vault of Gods.\n\nRequires Ascension Rank 1.",
+        "plainText": "You can now select T5 artifacts with Divine Relic and Vault of Gods.\n\nRequires Ascension Rank 1.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_keep_t5_artifacts.name",
+        "localizationDescriptionKey": "prestige.p_t6_keep_t5_artifacts.desc",
+        "spriteResourceIndex": 476,
+        "constructor": "0x140599620"
+      }
+    },
+    {
+      "id": "p_Bt6_damage_infinite",
+      "name": "Endless Conquest",
+      "tier": 6,
+      "position": {
+        "row": 0,
+        "column": 2
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "unbounded"
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "All dwarves get +[#8ccafa]0.25[c_white]% damage.\n\nBonus per rank is increased by +[#8ccafa]0.1[c_white]% per Ascension rank.",
+        "plainText": "All dwarves get +0.25% damage.\n\nBonus per rank is increased by +0.1% per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_Bt6_damage_infinite.name",
+        "localizationDescriptionKey": "prestige.p_Bt6_damage_infinite.desc",
+        "spriteResourceIndex": 478,
+        "constructor": "0x1405999C0"
+      }
+    },
+    {
+      "id": "p_t6_rituals_cd_infinite",
+      "name": "Endless Invocations",
+      "tier": 6,
+      "position": {
+        "row": 0,
+        "column": 3
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 1,
+        "hardMaximum": 15
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Rituals have [#8ccafa]5[c_white]% lower cooldown.\n\nYou can buy this upgrade [#8ccafa]1[c_white] time per Ascension rank, up to [#8ccafa]15[c_white] max.",
+        "plainText": "Rituals have 5% lower cooldown.\n\nYou can buy this upgrade 1 time per Ascension rank, up to 15 max.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_rituals_cd_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_rituals_cd_infinite.desc",
+        "spriteResourceIndex": 479,
+        "constructor": "0x140599DC0"
+      }
+    },
+    {
+      "id": "p_t6_shrine_grounds",
+      "name": "Pantheon",
+      "tier": 6,
+      "position": {
+        "row": 0,
+        "column": 4
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [
+        {
+          "rank": 1,
+          "minimumAscensionRank": 0
+        },
+        {
+          "rank": 2,
+          "minimumAscensionRank": 2
+        }
+      ],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Expand Holy Grounds upgrade in Shrine can be bought [#8ccafa]1/2[c_white] additional times.\n\nYou can buy this upgrade at Ascension rank [#8ccafa]0/2[c_white].",
+        "plainText": "Expand Holy Grounds upgrade in Shrine can be bought 1/2 additional times.\n\nYou can buy this upgrade at Ascension rank 0/2.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_shrine_grounds.name",
+        "localizationDescriptionKey": "prestige.p_t6_shrine_grounds.desc",
+        "spriteResourceIndex": 537,
+        "constructor": "0x14059A1C0"
+      }
+    },
+    {
+      "id": "p_t6_miners_infinite",
+      "name": "Endless Picks",
+      "tier": 6,
+      "position": {
+        "row": 0,
+        "column": 5
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 5,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Miners get +[#8ccafa]5[c_white]% damage per rank.\n\nYou can buy this upgrade [#8ccafa]5[c_white] times per Ascension rank.",
+        "plainText": "Miners get +5% damage per rank.\n\nYou can buy this upgrade 5 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_miners_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_miners_infinite.desc",
+        "spriteResourceIndex": 494,
+        "constructor": "0x14059A560"
+      }
+    },
+    {
+      "id": "p_t6_cannon_infinite",
+      "name": "Endless Balls",
+      "tier": 6,
+      "position": {
+        "row": 0,
+        "column": 6
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 5,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Duke Cannons get +[#8ccafa]5[c_white]% damage per rank.\n\nYou can buy this upgrade [#8ccafa]5[c_white] times per Ascension rank.",
+        "plainText": "Duke Cannons get +5% damage per rank.\n\nYou can buy this upgrade 5 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_cannons_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_cannons_infinite.desc",
+        "spriteResourceIndex": 489,
+        "constructor": "0x14059A960"
+      }
+    },
+    {
+      "id": "p_t6_demodwarves_infinite",
+      "name": "Endless Explosions",
+      "tier": 6,
+      "position": {
+        "row": 1,
+        "column": 0
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 5,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Demodwarves get +[#8ccafa]5[c_white]% damage per rank.\n\nYou can buy this upgrade [#8ccafa]5[c_white] times per Ascension rank.",
+        "plainText": "Demodwarves get +5% damage per rank.\n\nYou can buy this upgrade 5 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_demodwarves_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_demodwarves_infinite.desc",
+        "spriteResourceIndex": 490,
+        "constructor": "0x14059AD60"
+      }
+    },
+    {
+      "id": "p_t6_flamers_infinite",
+      "name": "Endless Blaze",
+      "tier": 6,
+      "position": {
+        "row": 1,
+        "column": 1
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 5,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Flamers get +[#8ccafa]5[c_white]% damage per rank.\n\nYou can buy this upgrade [#8ccafa]5[c_white] times per Ascension rank.",
+        "plainText": "Flamers get +5% damage per rank.\n\nYou can buy this upgrade 5 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_flamers_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_flamers_infinite.desc",
+        "spriteResourceIndex": 491,
+        "constructor": "0x14059B160"
+      }
+    },
+    {
+      "id": "p_t6_lasers_infinite",
+      "name": "Endless Lasers",
+      "tier": 6,
+      "position": {
+        "row": 1,
+        "column": 2
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 5,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Laser Cannons get +[#8ccafa]5[c_white]% damage per rank.\n\nYou can buy this upgrade [#8ccafa]5[c_white] times per Ascension rank.",
+        "plainText": "Laser Cannons get +5% damage per rank.\n\nYou can buy this upgrade 5 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_lasers_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_lasers_infinite.desc",
+        "spriteResourceIndex": 493,
+        "constructor": "0x14059B560"
+      }
+    },
+    {
+      "id": "p_t6_harpoons_infinite",
+      "name": "Endless Penetration",
+      "tier": 6,
+      "position": {
+        "row": 1,
+        "column": 3
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 5,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Harpoon Ballistas get +[#8ccafa]5[c_white]% damage per rank.\n\nYou can buy this upgrade [#8ccafa]5[c_white] times per Ascension rank.",
+        "plainText": "Harpoon Ballistas get +5% damage per rank.\n\nYou can buy this upgrade 5 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_harpoons_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_harpoons_infinite.desc",
+        "spriteResourceIndex": 492,
+        "constructor": "0x14059B960"
+      }
+    },
+    {
+      "id": "p_Ct6_ore_gold_mul",
+      "name": "Golden World",
+      "tier": 6,
+      "position": {
+        "row": 1,
+        "column": 4
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "unbounded"
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "All ores and gems are worth [#8ccafa]0.30[c_white]% more gold.\n\nBonus per rank is increased by +[#8ccafa]0.25[c_white]% per Ascension rank.",
+        "plainText": "All ores and gems are worth 0.30% more gold.\n\nBonus per rank is increased by +0.25% per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_Ct6_ore_gold_mul.name",
+        "localizationDescriptionKey": "prestige.p_Ct6_ore_gold_mul.desc",
+        "spriteResourceIndex": 499,
+        "constructor": "0x14059BD60"
+      }
+    },
+    {
+      "id": "p_t6_mithril_per_ascension",
+      "name": "Ascended Mithril Cache",
+      "tier": 6,
+      "position": {
+        "row": 1,
+        "column": 5
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 1,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with +[#8ccafa]6[c_white] Mithril per rank.\n\nYou can buy this upgrade [#8ccafa]1[c_white] time per Ascension rank.",
+        "plainText": "Start the game with +6 Mithril per rank.\n\nYou can buy this upgrade 1 time per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_mithril_per_ascension.name",
+        "localizationDescriptionKey": "prestige.p_t6_mithril_per_ascension.desc",
+        "spriteResourceIndex": 459,
+        "constructor": "0x14059C160"
+      }
+    },
+    {
+      "id": "p_t6_soul_per_ascension",
+      "name": "Ascended Soul Cache",
+      "tier": 6,
+      "position": {
+        "row": 1,
+        "column": 6
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 1,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with +[#8ccafa]2[c_white] Soul per rank.\n\nYou can buy this upgrade [#8ccafa]1[c_white] time per Ascension rank.",
+        "plainText": "Start the game with +2 Soul per rank.\n\nYou can buy this upgrade 1 time per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_soul_per_ascension.name",
+        "localizationDescriptionKey": "prestige.p_t6_soul_per_ascension.desc",
+        "spriteResourceIndex": 460,
+        "constructor": "0x14059C560"
+      }
+    },
+    {
+      "id": "p_t6_gold_per_ascension",
+      "name": "Ascended Gold Cache",
+      "tier": 6,
+      "position": {
+        "row": 2,
+        "column": 0
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 1,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Start the game with +[#8ccafa]25,000[c_white] gold per rank.\n\nYou can buy this upgrade [#8ccafa]1[c_white] time per Ascension rank.",
+        "plainText": "Start the game with +25,000 gold per rank.\n\nYou can buy this upgrade 1 time per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_gold_per_ascension.name",
+        "localizationDescriptionKey": "prestige.p_t6_gold_per_ascension.desc",
+        "spriteResourceIndex": 458,
+        "constructor": "0x14059C960"
+      }
+    },
+    {
+      "id": "p_t6_mithril_luck_infinite",
+      "name": "Endless Mithril Fortune",
+      "tier": 6,
+      "position": {
+        "row": 2,
+        "column": 1
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 2,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Increases Mithril-Luck of all dwarves by +[#8ccafa]2[c_white].\n\nYou can buy this upgrade [#8ccafa]2[c_white] times per Ascension rank.",
+        "plainText": "Increases Mithril-Luck of all dwarves by +2.\n\nYou can buy this upgrade 2 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_mithril_luck_infinite.name",
+        "localizationDescriptionKey": "prestige.p_t6_mithril_luck_infinite.desc",
+        "spriteResourceIndex": 480,
+        "constructor": "0x14059CD60"
+      }
+    },
+    {
+      "id": "p_t6_spire_pp_chance",
+      "name": "Primordial Hunger",
+      "tier": 6,
+      "position": {
+        "row": 2,
+        "column": 2
+      },
+      "maxRank": null,
+      "repeatable": true,
+      "nativeMaxPurchases": 0,
+      "rankLimit": {
+        "kind": "ascension-scaled",
+        "ranksPerAscensionRank": 2,
+        "hardMaximum": null
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "Every time you consume a mountain after level 100, you have +[#8ccafa]2[c_white]% chance per rank to gain +[#8ccafa]1[c_white] PP. After every [#8ccafa]100[c_white]%, the excess chance rolls for one more PP.\n\nYou can buy this upgrade [#8ccafa]2[c_white] times per Ascension rank.",
+        "plainText": "Every time you consume a mountain after level 100, you have +2% chance per rank to gain +1 PP. After every 100%, the excess chance rolls for one more PP.\n\nYou can buy this upgrade 2 times per Ascension rank.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_spire_pp_chance.name",
+        "localizationDescriptionKey": "prestige.p_t6_spire_pp_chance.desc",
+        "spriteResourceIndex": 524,
+        "constructor": "0x14059D160"
+      }
+    },
+    {
+      "id": "p_t6_spire_artifact_bypass",
+      "name": "King Of The Spire",
+      "tier": 6,
+      "position": {
+        "row": 2,
+        "column": 3
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [
+        {
+          "rank": 1,
+          "minimumAscensionRank": 1
+        },
+        {
+          "rank": 2,
+          "minimumAscensionRank": 5
+        }
+      ],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "- [#8ccafa]Rank 1[c_white]: When reaching The Great World Spire, the event now automatically starts after 10 seconds.\n\n- [#8ccafa]Rank 2[c_white]: The Great World Spire no longer stops you from progressing if you're missing any artifacts.\n\nRequires Ascension Rank 1. Rank 2 requires Ascension Rank 5.",
+        "plainText": "- Rank 1: When reaching The Great World Spire, the event now automatically starts after 10 seconds.\n\n- Rank 2: The Great World Spire no longer stops you from progressing if you're missing any artifacts.\n\nRequires Ascension Rank 1. Rank 2 requires Ascension Rank 5.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_spire_artifact_bypass.name",
+        "localizationDescriptionKey": "prestige.p_t6_spire_artifact_bypass.desc",
+        "spriteResourceIndex": 544,
+        "constructor": "0x14059D560"
+      }
+    },
+    {
+      "id": "p_t6_building_headstart",
+      "name": "Ancestral Halls",
+      "tier": 6,
+      "position": {
+        "row": 2,
+        "column": 4
+      },
+      "maxRank": 3,
+      "repeatable": false,
+      "nativeMaxPurchases": 3,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 3
+      },
+      "rankRequirements": [],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [
+        {
+          "kind": "grants-after-ascension",
+          "targetUpgradeId": "p_manufactorum",
+          "targetName": "Manufactorum",
+          "minimumSourceRank": 1
+        },
+        {
+          "kind": "grants-after-ascension",
+          "targetUpgradeId": "p_spelunkers_guild",
+          "targetName": "Spelunker's Guild",
+          "minimumSourceRank": 1
+        },
+        {
+          "kind": "grants-after-ascension",
+          "targetUpgradeId": "p_geode_sanctum",
+          "targetName": "Geode Sanctum",
+          "minimumSourceRank": 2
+        },
+        {
+          "kind": "grants-after-ascension",
+          "targetUpgradeId": "p_meadhall",
+          "targetName": "Meadhall",
+          "minimumSourceRank": 2
+        },
+        {
+          "kind": "grants-after-ascension",
+          "targetUpgradeId": "p_shrine",
+          "targetName": "Shrine",
+          "minimumSourceRank": 3
+        }
+      ],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "After you Ascend you start with the following prestige upgrades already unlocked:\n- [#8ccafa]Rank 1[c_white]: Manufactorum and Spelunker's Guild.\n- [#8ccafa]Rank 2[c_white]: Geode Sanctum and Meadhall.\n- [#8ccafa]Rank 3[c_white]: Shrine.",
+        "plainText": "After you Ascend you start with the following prestige upgrades already unlocked:\n- Rank 1: Manufactorum and Spelunker's Guild.\n- Rank 2: Geode Sanctum and Meadhall.\n- Rank 3: Shrine.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_building_headstart.name",
+        "localizationDescriptionKey": "prestige.p_t6_building_headstart.desc",
+        "spriteResourceIndex": 456,
+        "constructor": "0x14059D900"
+      }
+    },
+    {
+      "id": "p_t6_start_with_buildings",
+      "name": "Foundations of Stone",
+      "tier": 6,
+      "position": {
+        "row": 2,
+        "column": 5
+      },
+      "maxRank": 2,
+      "repeatable": false,
+      "nativeMaxPurchases": 2,
+      "rankLimit": {
+        "kind": "fixed",
+        "maximum": 2
+      },
+      "rankRequirements": [
+        {
+          "rank": 1,
+          "minimumAscensionRank": 1
+        },
+        {
+          "rank": 2,
+          "minimumAscensionRank": 1
+        }
+      ],
+      "costPerRank": 6,
+      "costFormula": "tier * baseCost (baseCost = 1); fixed for every rank",
+      "dependencies": [],
+      "relationships": [],
+      "requirements": [
+        {
+          "kind": "tier-spent",
+          "tier": 6,
+          "prestigePointsSpent": 250
+        }
+      ],
+      "effect": {
+        "gameText": "- [#8ccafa]Rank 1[c_white]: You start the game with all non-prestige buildings already constructed.\n\n- [#8ccafa]Rank 2[c_white]: Ctrl + Shift + Click any dwarf hire button to instantly buy all free units across all buildings at once.\n\nRequires Ascension Rank 1.",
+        "plainText": "- Rank 1: You start the game with all non-prestige buildings already constructed.\n\n- Rank 2: Ctrl + Shift + Click any dwarf hire button to instantly buy all free units across all buildings at once.\n\nRequires Ascension Rank 1.",
+        "representation": "localized-game-data"
+      },
+      "internal": {
+        "localizationNameKey": "prestige.p_t6_start_with_buildings.name",
+        "localizationDescriptionKey": "prestige.p_t6_start_with_buildings.desc",
+        "spriteResourceIndex": 488,
+        "constructor": "0x14059DCA0"
+      }
+    }
+  ]
+}
