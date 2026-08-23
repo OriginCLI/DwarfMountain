@@ -1,0 +1,335 @@
+:root {
+  color: #f6e7c5;
+  background: #100b09;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #100b09;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 77% -4%, rgb(206 116 33 / 20%), transparent 31rem),
+    linear-gradient(135deg, rgb(255 239 185 / 3%) 25%, transparent 25%) 0 0 / 7px 7px,
+    #100b09;
+}
+
+a {
+  color: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.masthead,
+.app-frame {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.masthead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 10px 18px;
+  border-bottom: 1px solid #6b3c20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #ffe7a6;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  place-items: center;
+  color: #17100b;
+  background: #e4a63d;
+  box-shadow: 4px 4px 0 #613318;
+  font-size: 21px;
+}
+
+.brand-kicker,
+.eyebrow,
+.rail-label,
+.build-stamp,
+.readiness-grid p {
+  font-family: "Rockwell Extra Bold", "Copperplate Gothic Light", "Palatino Linotype", serif;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.brand-kicker {
+  display: block;
+  color: #c78d4a;
+}
+
+.brand strong {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.33rem);
+  letter-spacing: 0.015em;
+}
+
+.build-stamp {
+  margin: 0;
+  color: #a89a82;
+  text-align: right;
+}
+
+.app-frame {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  min-height: 620px;
+  border: 1px solid #6b3c20;
+  border-top: 0;
+  background: rgb(30 20 15 / 89%);
+  box-shadow: 10px 11px 0 rgb(0 0 0 / 34%);
+}
+
+.rail {
+  padding: 25px 14px;
+  border-right: 1px solid #5e351f;
+  background: linear-gradient(180deg, #2b1912, #170e0b);
+}
+
+.rail-label {
+  margin: 0 8px 15px;
+  color: #c78d4a;
+}
+
+.rail ul {
+  display: grid;
+  gap: 3px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.rail a {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  color: #cfc1a7;
+  font-size: 0.94rem;
+  text-decoration: none;
+}
+
+.rail a:hover,
+.rail a:focus-visible {
+  border-color: #a9652d;
+  color: #fff1c6;
+  outline: 0;
+}
+
+.rail a[aria-current="page"] {
+  border-color: #8c5226;
+  color: #24150d;
+  background: #e4a63d;
+  box-shadow: 3px 3px 0 #573016;
+  font-weight: 700;
+}
+
+.command-deck {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(40px, 9vw, 104px);
+  background:
+    linear-gradient(90deg, rgb(255 208 111 / 3%) 1px, transparent 1px) 0 0 / 18px 18px,
+    linear-gradient(rgb(255 208 111 / 3%) 1px, transparent 1px) 0 0 / 18px 18px;
+}
+
+.rune-line {
+  width: 110px;
+  height: 5px;
+  margin-bottom: 22px;
+  background: #e4a63d;
+  box-shadow: 7px 0 0 #86461f, 14px 0 0 #4d2616;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #e7a746;
+}
+
+h1 {
+  max-width: 670px;
+  margin: 0;
+  color: #fff0ca;
+  font-size: clamp(2.25rem, 7vw, 5.4rem);
+  line-height: 0.91;
+  letter-spacing: -0.045em;
+}
+
+.deck-copy {
+  max-width: 600px;
+  margin: 22px 0 31px;
+  color: #cfc1a7;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.readiness-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(680px, 100%);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.readiness-grid article {
+  position: relative;
+  min-height: 125px;
+  padding: 17px 17px 17px 35px;
+  border: 1px solid #624025;
+  background: rgb(15 9 7 / 76%);
+}
+
+.readiness-grid p {
+  margin: 0 0 4px;
+  color: #ba8550;
+}
+
+.readiness-grid strong,
+.readiness-grid small {
+  display: block;
+}
+
+.readiness-grid strong {
+  color: #f4dfad;
+  font-size: 1rem;
+}
+
+.readiness-grid small {
+  margin-top: 8px;
+  color: #aa9e89;
+  line-height: 1.3;
+}
+
+.status-gem {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg);
+}
+
+.status-gem--amber {
+  background: #e4a63d;
+  box-shadow: 0 0 12px rgb(228 166 61 / 55%);
+}
+
+.status-gem--green {
+  background: #8dac71;
+  box-shadow: 0 0 12px rgb(141 172 113 / 45%);
+}
+
+.primary-route {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 13px 17px;
+  border: 1px solid #efbd5a;
+  color: #27150b;
+  background: #e4a63d;
+  box-shadow: 5px 5px 0 #5b2f17;
+  font-family: "Rockwell Extra Bold", "Copperplate Gothic Light", "Palatino Linotype", serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.primary-route:hover,
+.primary-route:focus-visible {
+  color: #fff5dc;
+  background: #9b4d24;
+  outline: 2px solid #ffe0a0;
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  .masthead {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .build-stamp {
+    text-align: left;
+  }
+
+  .app-frame {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    overflow-x: auto;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 1px solid #5e351f;
+  }
+
+  .rail-label {
+    display: none;
+  }
+
+  .rail ul {
+    display: flex;
+    width: max-content;
+  }
+
+  .rail a {
+    white-space: nowrap;
+  }
+
+  .command-deck {
+    min-height: 590px;
+  }
+
+  .readiness-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
