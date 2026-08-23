@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createEmptyProfile, type PlayerProfile } from '../domain/profile'
+import { prestigeDatabase } from '../data/prestige/installed-build'
+import { PrestigePage } from '../features/prestige/PrestigePage'
 import { ProfileStore } from '../storage/profileStore'
 
 const pages = [
@@ -36,7 +38,7 @@ function useHashRoute(): RouteId {
 
 export function App() {
   const route = useHashRoute()
-  const profile = useActiveProfile()
+  const [profile, updateProfile] = useActiveProfile()
   const currentPage = pages.find((page) => page.id === route) ?? pages[0]
 
   return (
@@ -49,10 +51,10 @@ export function App() {
             <strong>Dwarf Eats Mountain Companion</strong>
           </span>
         </a>
-        <p className="build-stamp">DATA: BUILD 24333424 · OBSERVED 21 AUG 2026</p>
+        <p className="build-stamp">DATA: BUILD {prestigeDatabase.game.steamBuildId} · OBSERVED 21 AUG 2026</p>
       </header>
 
-      <div className="app-frame">
+      <div className={`app-frame ${route === 'prestige' ? 'app-frame--prestige' : ''}`}>
         <nav className="rail" aria-label="Companion navigation">
           <p className="rail-label">EXPEDITION BOARD</p>
           <ul>
@@ -70,13 +72,19 @@ export function App() {
           </ul>
         </nav>
 
-        {route === 'dashboard' ? <Dashboard profileName={profile?.name ?? 'Opening profile vault…'} /> : <PlaceholderPage page={currentPage} />}
+        {route === 'dashboard' ? (
+          <Dashboard profileName={profile?.name ?? 'Opening profile vault…'} />
+        ) : route === 'prestige' && profile !== null ? (
+          <PrestigePage profile={profile} onProfileChange={updateProfile} />
+        ) : (
+          <PlaceholderPage page={currentPage} />
+        )}
       </div>
     </main>
   )
 }
 
-function useActiveProfile(): PlayerProfile | null {
+function useActiveProfile(): [PlayerProfile | null, (profile: PlayerProfile) => void] {
   const [profile, setProfile] = useState<PlayerProfile | null>(null)
 
   useEffect(() => {
@@ -93,7 +101,12 @@ function useActiveProfile(): PlayerProfile | null {
     setProfile(activeProfile)
   }, [])
 
-  return profile
+  const updateProfile = (nextProfile: PlayerProfile) => {
+    new ProfileStore(window.localStorage).upsert(nextProfile)
+    setProfile(nextProfile)
+  }
+
+  return [profile, updateProfile]
 }
 
 function Dashboard({ profileName }: { profileName: string }) {
@@ -108,10 +121,10 @@ function Dashboard({ profileName }: { profileName: string }) {
 
       <div className="readiness-grid" aria-label="Current companion readiness">
         <article>
-          <span className="status-gem status-gem--amber" aria-hidden="true" />
+          <span className="status-gem status-gem--green" aria-hidden="true" />
           <p>PRESTIGE DATA</p>
-          <strong>Extracting current tree</strong>
-          <small>Build-specific rank and position verification remains open.</small>
+          <strong>102 verified upgrades</strong>
+          <small>Installed-build ranks, costs, tier gates, effects, and exact seven-column positions.</small>
         </article>
         <article>
           <span className="status-gem status-gem--green" aria-hidden="true" />

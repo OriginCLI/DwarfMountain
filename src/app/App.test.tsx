@@ -30,4 +30,16 @@ describe('App', () => {
     expect(await screen.findByText('Main Expedition')).toBeInTheDocument()
     expect(window.localStorage.getItem('dwarf-mountain-companion:profiles:v1')).toContain('Main Expedition')
   })
+
+  it('persists Prestige rank edits across a remount', async () => {
+    window.location.hash = '#prestige'
+    const firstRender = render(<App />)
+    const swiftStart = await screen.findByRole('button', { name: /Swift Start.*Rank 0 of 3/ })
+    fireEvent.click(swiftStart)
+    expect(screen.getByRole('button', { name: /Swift Start.*Rank 1 of 3/ })).toBeInTheDocument()
+
+    firstRender.unmount()
+    render(<App />)
+    expect(await screen.findByRole('button', { name: /Swift Start.*Rank 1 of 3/ })).toBeInTheDocument()
+  })
 })
