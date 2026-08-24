@@ -31,7 +31,10 @@ export function PrestigeTooltip({ upgrade, rank, unlockSpent, ascensionRank }: P
 
   return (
     <aside className="prestige-tooltip" id="prestige-tooltip" role="tooltip" aria-live="polite">
-      <p className="prestige-tooltip__eyebrow">Tier {upgrade.tier} · Grid {upgrade.position.row + 1}:{upgrade.position.column + 1}</p>
+      <p className="prestige-tooltip__eyebrow">
+        Tier {upgrade.tier} · Grid {upgrade.position.row + 1}:{upgrade.position.column + 1}
+        {upgrade.position.confidence === 'unverified' ? ' · unverified order' : ''}
+      </p>
       <h3>{upgrade.name}</h3>
       <p className="prestige-tooltip__rank">Rank {rank} / {maximum}</p>
       <div className="prestige-tooltip__rule" />

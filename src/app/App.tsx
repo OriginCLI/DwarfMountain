@@ -51,7 +51,7 @@ export function App() {
             <strong>Dwarf Eats Mountain Companion</strong>
           </span>
         </a>
-        <p className="build-stamp">DATA: BUILD {prestigeDatabase.game.steamBuildId} · OBSERVED 21 AUG 2026</p>
+        <p className="build-stamp">DATA: BUILD {prestigeDatabase.game.steamBuildId} · ORDER CHECKED 24 AUG 2026</p>
       </header>
 
       <div className={`app-frame ${route === 'prestige' ? 'app-frame--prestige' : ''}`}>
@@ -123,8 +123,8 @@ function Dashboard({ profileName }: { profileName: string }) {
         <article>
           <span className="status-gem status-gem--green" aria-hidden="true" />
           <p>PRESTIGE DATA</p>
-          <strong>102 verified upgrades</strong>
-          <small>Installed-build ranks, costs, tier gates, effects, and exact seven-column positions.</small>
+          <strong>102 installed-build upgrades</strong>
+          <small>Ranks, costs, gates, and effects verified; live display order verified for Tiers 1–5. Tier 6 awaits unlock.</small>
         </article>
         <article>
           <span className="status-gem status-gem--green" aria-hidden="true" />

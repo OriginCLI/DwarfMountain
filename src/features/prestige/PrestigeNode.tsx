@@ -1,4 +1,5 @@
-import type { MouseEvent } from 'react'
+import { useState, type MouseEvent } from 'react'
+import { getPrestigeIconPath } from '../../data/assets/assetManifest'
 import type { InstalledPrestigeUpgrade } from '../../data/prestige/installed-build'
 
 interface PrestigeNodeProps {
@@ -24,6 +25,7 @@ export function PrestigeNode({
   onIncrement,
   onDecrement,
 }: PrestigeNodeProps) {
+  const [showLocalIcon, setShowLocalIcon] = useState(true)
   const isMaxed = rankCap !== null && rank >= rankCap
   const state = locked ? 'locked' : isMaxed ? 'maxed' : rank > 0 ? 'partial' : 'unowned'
   const maximumLabel = rankCap === null ? 'Repeatable with no fixed cap' : `of ${rankCap}`
@@ -66,7 +68,15 @@ export function PrestigeNode({
         }
       }}
     >
-      <span className="prestige-node__icon" aria-hidden="true">{locked ? '◇' : initials}</span>
+      <span className="prestige-node__icon" aria-hidden="true">
+        {showLocalIcon ? (
+          <img
+            alt=""
+            src={getPrestigeIconPath(upgrade.id)}
+            onError={() => setShowLocalIcon(false)}
+          />
+        ) : locked ? '◇' : initials}
+      </span>
       <span className="prestige-node__cost" aria-hidden="true">{upgrade.costPerRank}</span>
       <span className="prestige-node__rank" aria-hidden="true">
         {rankCap === null || upgrade.rankLimit.kind === 'ascension-scaled' ? (

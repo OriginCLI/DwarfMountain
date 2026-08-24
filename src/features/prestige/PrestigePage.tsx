@@ -24,12 +24,24 @@ export function calculatePrestigeSpent(ranks: Readonly<Record<string, number>>):
   }, 0)
 }
 
+function comparePrestigePosition(left: InstalledPrestigeUpgrade, right: InstalledPrestigeUpgrade): number {
+  return left.position.row - right.position.row || left.position.column - right.position.column
+}
+
 export function PrestigePage({ profile, onProfileChange }: PrestigePageProps) {
-  const [selectedId, setSelectedId] = useState(prestigeUpgrades[0]?.id ?? '')
+  const firstDisplayedUpgrade = prestigeUpgrades
+    .filter((upgrade) => upgrade.tier === 1)
+    .sort(comparePrestigePosition)[0]
+  const [selectedId, setSelectedId] = useState(firstDisplayedUpgrade?.id ?? '')
   const spent = calculatePrestigeSpent(profile.prestigeRanks)
   const selectedUpgrade = prestigeUpgrades.find((upgrade) => upgrade.id === selectedId) ?? prestigeUpgrades[0]
   const tiers = useMemo(
-    () => Array.from({ length: 6 }, (_, index) => prestigeUpgrades.filter((upgrade) => upgrade.tier === index + 1)),
+    () => Array.from(
+      { length: 6 },
+      (_, index) => prestigeUpgrades
+        .filter((upgrade) => upgrade.tier === index + 1)
+        .sort(comparePrestigePosition),
+    ),
     [],
   )
   const currentTier = prestigeDatabase.tierUnlocks.reduce(
@@ -138,7 +150,10 @@ export function PrestigePage({ profile, onProfileChange }: PrestigePageProps) {
                     <span className="prestige-tier__roman">{toRoman(tier)}</span>
                     <h2 id={`tier-${tier}-title`}>Tier {tier}</h2>
                   </div>
-                  <p>{threshold === 0 ? 'OPEN' : tierLocked ? `Tier ${tier} unlocks at ${threshold} PP spent` : `UNLOCKED · ${threshold} PP`}</p>
+                  <p>
+                    {threshold === 0 ? 'OPEN' : tierLocked ? `Tier ${tier} unlocks at ${threshold} PP spent` : `UNLOCKED · ${threshold} PP`}
+                    {upgrades.some((upgrade) => upgrade.position.confidence === 'unverified') ? ' · POSITION ORDER PENDING LIVE CHECK' : ''}
+                  </p>
                 </header>
                 <div className="prestige-tier__grid">
                   {upgrades.map((upgrade) => {

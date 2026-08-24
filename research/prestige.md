@@ -16,7 +16,7 @@ The v1.3.0 notes also say that the game's Prestige-screen Begin Game and Delete 
 
 An official Steam screenshot exposes the intended broad composition: the live game remains visible behind a centered Prestige panel, with tier labels, compact icon rows, PP counters, and a tooltip anchored to the selected node. It is suitable as a visual-reference source, not as evidence for node positions in the August 21 build. [Official Steam screenshot](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/1ec3938513869484ebcd0319aecda70147314f8d/ss_1ec3938513869484ebcd0319aecda70147314f8d.1920x1080.jpg?t=1761922163)
 
-Phase 2 reproduces that visual grammar—tiered rails, compact icons, cost/rank state, tooltip placement, dark opaque panels, and strong readable status contrast—with original CSS and generated text placeholders. It does not embed, crop, or redistribute the screenshot or its game art.
+Phase 2 reproduces that visual grammar—tiered rails, compact icons, cost/rank state, tooltip placement, dark opaque panels, and strong readable status contrast—with original CSS. A fresh clone uses generated text placeholders; an explicitly authorized local workflow can display narrowly extracted, Git-ignored Prestige icons from the player's own installation. No game art is committed or redistributed.
 
 ## Confirmed installed-build examples
 
@@ -41,9 +41,9 @@ Read-only inspection of the GameMaker data file, the YYC executable, and English
 | Tier counts | `14 / 26 / 14 / 21 / 7 / 20` |
 | Row shapes | T1 `7+7`; T2 `7+7+7+5`; T3 `7+7`; T4 `7+7+7`; T5 `7`; T6 `7+7+6` |
 | Tier thresholds | `0 / 12 / 50 / 125 / 180 / 250` PP spent |
-| Grid | Seven columns; 102 unique tier/row/column positions |
+| Grid | Seven columns; 82 live-verified Tier 1–5 positions and 20 unique but unverified Tier 6 placeholder positions |
 | Rank price | `tier × native cost`; native cost is `1` for every node |
 | Dependencies and relationships | No native direct dependency field; installed text supplies three run-upgrade-tier requirements, five rank-specific Ascension gates, and typed downstream Prestige-node relationships |
 | Repeatables | 14 Tier 6 nodes with native `maxPurchases = 0`: two unbounded and 12 limited per Ascension Rank; Endless Invocations has a hard cap of 15 |
 
-Every node retains its internal constructor, localization keys, native sprite reference, exact description, rank-limit formula, requirements, relationships, source evidence, and original native values. The Phase 2 editor enforces finite, rank-gated, and Ascension-scaled purchase limits directly. It does not claim to turn other conditional description prose into optimizer formulas; transparent scoring and full effect evaluators belong to later phases.
+Every node retains its internal constructor, localization keys, native sprite reference, exact description, rank-limit formula, requirements, relationships, source evidence, and original native values. Live tooltip observation on August 24 established the exact row-major display sequence for Tiers 1–5 and disproved the earlier constructor-order assumption. Tier 6 remains marked unverified until it is unlocked. The Phase 2 editor enforces finite, rank-gated, and Ascension-scaled purchase limits directly. It does not claim to turn other conditional description prose into optimizer formulas; transparent scoring and full effect evaluators belong to later phases.

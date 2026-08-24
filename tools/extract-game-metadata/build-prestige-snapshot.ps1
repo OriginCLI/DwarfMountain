@@ -16,6 +16,9 @@ param(
     [string]$ManifestPath,
 
     [Parameter(Mandatory = $true)]
+    [string]$DisplayOrderFile,
+
+    [Parameter(Mandatory = $true)]
     [string]$CapturedAt
 )
 
@@ -35,6 +38,7 @@ $nativePath = (Resolve-Path -LiteralPath $NativeMetadata).Path
 $localizationPath = (Resolve-Path -LiteralPath $LocalizationFile).Path
 $dataPath = (Resolve-Path -LiteralPath $DataFile).Path
 $manifestPath = (Resolve-Path -LiteralPath $ManifestPath).Path
+$displayOrderPath = (Resolve-Path -LiteralPath $DisplayOrderFile).Path
 $outputDirectory = Split-Path -Parent $OutputPath
 if (-not (Test-Path -LiteralPath $outputDirectory -PathType Container)) {
     throw "Output directory does not exist: $outputDirectory"
@@ -48,6 +52,13 @@ if (-not $buildMatch.Success) {
     throw "Steam manifest did not contain a buildid: $manifestPath"
 }
 $steamBuildId = $buildMatch.Groups['buildId'].Value
+$displayOrder = Get-Content -Raw -LiteralPath $displayOrderPath | ConvertFrom-Json
+if ([string]$displayOrder.steamBuildId -ne $steamBuildId) {
+    throw "Display-order evidence is for build $($displayOrder.steamBuildId), not installed build $steamBuildId."
+}
+if ([int]$displayOrder.columns -ne 7) {
+    throw "Expected seven columns in display-order evidence."
+}
 if ($CapturedAt -notmatch '^\d{4}-\d{2}-\d{2}$') {
     throw "CapturedAt must use YYYY-MM-DD format, got '$CapturedAt'."
 }
@@ -105,6 +116,27 @@ $prestigeRelationships = @{
     )
 }
 
+$verifiedDisplayOrdinals = @{}
+foreach ($tierProperty in $displayOrder.tiers.PSObject.Properties) {
+    $tierNumber = [int]$tierProperty.Name
+    $tierIds = @($tierProperty.Value)
+    $nativeTierIds = @($native.nodes | Where-Object { [int]$_.tier -eq $tierNumber } | ForEach-Object { [string]$_.id })
+    if ($tierIds.Count -ne $nativeTierIds.Count) {
+        throw "Display-order evidence for Tier $tierNumber has $($tierIds.Count) nodes; native metadata has $($nativeTierIds.Count)."
+    }
+    if (@($tierIds | Select-Object -Unique).Count -ne $tierIds.Count) {
+        throw "Display-order evidence for Tier $tierNumber contains duplicate IDs."
+    }
+    foreach ($nativeId in $nativeTierIds) {
+        if ($tierIds -notcontains $nativeId) {
+            throw "Display-order evidence for Tier $tierNumber is missing '$nativeId'."
+        }
+    }
+    for ($ordinal = 0; $ordinal -lt $tierIds.Count; $ordinal += 1) {
+        $verifiedDisplayOrdinals[[string]$tierIds[$ordinal]] = $ordinal
+    }
+}
+
 $nodes = foreach ($node in $native.nodes) {
     $nameKey = [string]$node.localization.name
     $descriptionKey = [string]$node.localization.description
@@ -119,6 +151,12 @@ $nodes = foreach ($node in $native.nodes) {
 
     $nativeMax = [int]$node.maxRank
     $tier = [int]$node.tier
+    $hasVerifiedPosition = $verifiedDisplayOrdinals.ContainsKey([string]$node.id)
+    $displayOrdinal = if ($hasVerifiedPosition) {
+        [int]$verifiedDisplayOrdinals[[string]$node.id]
+    } else {
+        ([int]$node.position.row * 7) + [int]$node.position.column
+    }
     $rankRequirements = @()
     if ($rankAscensionRequirements.ContainsKey([string]$node.id)) {
         $rankRequirements = @(for ($rankIndex = 0; $rankIndex -lt $rankAscensionRequirements[[string]$node.id].Count; $rankIndex += 1) {
@@ -155,8 +193,10 @@ $nodes = foreach ($node in $native.nodes) {
         name = [string]$localizedName
         tier = $tier
         position = [ordered]@{
-            row = [int]$node.position.row
-            column = [int]$node.position.column
+            row = [math]::Floor($displayOrdinal / 7)
+            column = $displayOrdinal % 7
+            source = if ($hasVerifiedPosition) { 'live-tooltip-observation' } else { 'constructor-order-derived' }
+            confidence = if ($hasVerifiedPosition) { 'verified' } else { 'unverified' }
         }
         maxRank = if ($nativeMax -eq 0) { $null } else { $nativeMax }
         repeatable = $nativeMax -eq 0
@@ -187,7 +227,7 @@ if (@($nodes).Count -ne 102) {
 }
 
 $snapshot = [ordered]@{
-    schemaVersion = 2
+    schemaVersion = 3
     databaseId = "steam-4078200-build-$steamBuildId"
     capturedAt = $CapturedAt
     game = [ordered]@{
@@ -215,7 +255,7 @@ $snapshot = [ordered]@{
             id = 'live-prestige-screen-cross-check'
             type = 'official-game'
             confidence = 'verified'
-            fields = @('tier counts', 'seven-column row layout', 'constructor-order placement', 'tier unlock thresholds')
+            fields = @('tier counts', 'seven-column row layout', 'Tier 1-5 tooltip-identified positions', 'tier unlock thresholds')
         },
         [ordered]@{
             id = 'installed-save-delta-cross-check'
@@ -242,7 +282,10 @@ $snapshot = [ordered]@{
     }
     layout = [ordered]@{
         columns = 7
-        rule = 'Filter native constructor order by tier, then fill rows left to right.'
+        rule = 'Fill rows left to right using live tooltip-identified display order where available.'
+        verifiedTiers = @(1, 2, 3, 4, 5)
+        unresolvedTiers = @(6)
+        unresolvedFallback = 'Native constructor order; retained only as an explicitly unverified placeholder because Tier 6 is locked in the observed save.'
     }
     nodes = @($nodes)
 }

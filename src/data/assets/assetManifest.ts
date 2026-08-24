@@ -18,3 +18,7 @@ export function resolveAssetPath(assetId: AssetId, hasLocalGameAsset: boolean): 
   const entry = assetManifest[assetId]
   return hasLocalGameAsset ? entry.gamePath : entry.fallbackPath
 }
+
+export function getPrestigeIconPath(upgradeId: string): string {
+  return `/assets/game/prestige/${encodeURIComponent(upgradeId)}.png`
+}

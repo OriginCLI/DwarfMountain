@@ -37,7 +37,12 @@ export interface InstalledPrestigeUpgrade {
   id: string
   name: string
   tier: number
-  position: { row: number; column: number }
+  position: {
+    row: number
+    column: number
+    source: 'live-tooltip-observation' | 'constructor-order-derived'
+    confidence: 'verified' | 'unverified'
+  }
   maxRank: number | null
   repeatable: boolean
   nativeMaxPurchases: number

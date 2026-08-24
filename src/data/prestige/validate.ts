@@ -21,6 +21,13 @@ export function validatePrestigeDatabase(database: InstalledPrestigeDatabase): s
     }
     positions.add(position)
 
+    if (upgrade.position.source === 'live-tooltip-observation' && upgrade.position.confidence !== 'verified') {
+      issues.push(`Live-observed position is not verified for ${upgrade.id}.`)
+    }
+    if (upgrade.position.source === 'constructor-order-derived' && upgrade.position.confidence !== 'unverified') {
+      issues.push(`Derived position is not marked unverified for ${upgrade.id}.`)
+    }
+
     if (!Number.isInteger(upgrade.tier) || upgrade.tier < 1 || upgrade.tier > 6) {
       issues.push(`Invalid tier for ${upgrade.id}.`)
     }

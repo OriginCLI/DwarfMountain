@@ -23,8 +23,8 @@ function renderPlanner() {
       />
     )
   }
-  render(<Harness />)
-  return { profile, updates }
+  const result = render(<Harness />)
+  return { profile, updates, ...result }
 }
 
 describe('PrestigePage', () => {
@@ -33,6 +33,37 @@ describe('PrestigePage', () => {
 
     expect(screen.getAllByRole('heading', { name: /Tier \d/ })).toHaveLength(6)
     expect(screen.getAllByRole('button', { name: /Rank \d/ })).toHaveLength(102)
+  })
+
+  it('renders verified tiers in the same row-major order as the game', () => {
+    renderPlanner()
+    const tierOne = screen.getByRole('heading', { name: 'Tier 1' }).closest('section')
+    const tierOneIds = Array.from(tierOne?.querySelectorAll('[data-upgrade-id]') ?? [])
+      .map((node) => node.getAttribute('data-upgrade-id'))
+
+    expect(tierOneIds.slice(0, 7)).toEqual([
+      'p_demodwarves_free_buys',
+      'p_dwarf_on_mountain_kill',
+      'p_housing_batch_dwarves',
+      'p_miners_free_buys',
+      'p_mountain_mithril_chance',
+      'p_ore_click_force',
+      'p_runner_slap_bonus_add',
+    ])
+    expect(tierOneIds.at(-1)).toBe('p_start_runners')
+  })
+
+  it('uses a local per-upgrade icon and falls back to initials when it is unavailable', () => {
+    const { container } = renderPlanner()
+    const button = container.querySelector('[data-upgrade-id="p_demodwarves_free_buys"]')
+    const icon = button?.querySelector('img')
+
+    expect(icon).toHaveAttribute(
+      'src',
+      '/assets/game/prestige/p_demodwarves_free_buys.png',
+    )
+    fireEvent.error(icon!)
+    expect(button).toHaveTextContent('EI')
   })
 
   it('increments, shift-increments, caps, and decrements ranks', () => {
@@ -94,5 +125,7 @@ describe('PrestigePage', () => {
     fireEvent.focus(screen.getByRole('button', { name: /Endless Invocations.*Rank 0 of 2/ }))
     expect(screen.getByRole('tooltip')).toHaveTextContent('Rank 0 / 2')
     expect(screen.getByRole('tooltip')).toHaveTextContent('Purchase limit: 1 per Ascension Rank, 15 maximum.')
+    expect(screen.getByRole('tooltip')).toHaveTextContent('unverified order')
+    expect(screen.getByText(/Tier 6 unlocks at 250 PP spent.*POSITION ORDER PENDING LIVE CHECK/)).toBeInTheDocument()
   })
 })

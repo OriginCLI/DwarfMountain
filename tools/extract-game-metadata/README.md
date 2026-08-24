@@ -63,20 +63,21 @@ $env:DEM_METADATA_OUTPUT = (Resolve-Path "$rawRoot\utmt").Path + '\resource-meta
   -LocalizationFile "$gameRoot\DEM_loc.json" `
   -DataFile "$gameRoot\data.win" `
   -ManifestPath 'C:\Program Files (x86)\Steam\steamapps\appmanifest_4078200.acf' `
-  -CapturedAt '2026-08-23' `
+  -DisplayOrderFile '.\tools\extract-game-metadata\prestige-display-order-build-24333424.json' `
+  -CapturedAt '2026-08-24' `
   -OutputPath '.\src\data\prestige\prestige-build-24333424.json'
 .\tools\extract-game-metadata\verify-local-build.ps1
 .\tools\extract-game-metadata\verify-local-build.test.ps1
 ```
 
-The raw outputs stay under ignored `.work/extraction/build-24333424/`. The only transformed game-data artifact intended for source control is `src/data/prestige/prestige-build-24333424.json`.
+The raw outputs stay under ignored `.work/extraction/build-24333424/`. Source control retains the transformed game-data snapshot plus the small, non-visual `prestige-display-order-build-24333424.json` observation record needed to regenerate verified positions.
 
 ## Extracted metadata
 
 The source-controlled snapshot contains:
 
 - all 102 internal upgrade IDs, English names, and descriptions;
-- tier, exact seven-column grid row and column, and native constructor reference;
+- tier, seven-column grid row and column, position provenance/confidence, and native constructor reference;
 - fixed PP cost per rank, finite maximum rank, unbounded status, or Ascension-scaled purchase-limit formula;
 - tier-spend unlock thresholds (`0`, `12`, `50`, `125`, `180`, `250` PP);
 - direct native dependency representation, rank-specific Ascension requirements, three run-upgrade-tier requirements, and downstream relationships between Prestige nodes;
@@ -87,7 +88,7 @@ Native `cost` is `1` for every constructor. Runtime rank price is `tier × cost`
 
 ## Cross-checks
 
-- The actual installed-build Prestige screen was opened normally and compared without purchasing anything. It showed 102 nodes in tier counts `14/26/14/21/7/20`, the same row shapes, constructor-order placement, and thresholds as the snapshot.
+- The actual installed-build Prestige screen was opened normally and inspected without purchasing anything. Tooltip hovering identified all 82 nodes in Tiers 1–5 in exact row-major order. Tier 6 was locked in the observed save, so its 20 positions remain explicitly unverified.
 - Existing read-only save differences confirmed the cost rule: one observed group cost `19 PP` for ranks priced `4 + 4 + 3 + 4 + 4`, and three Tier 5 purchases cost `15 PP`.
 - Snapshot tests reject duplicate IDs or positions and verify every rank cap, cost, dependency list, tier threshold, and source reference.
 
@@ -95,7 +96,7 @@ Native `cost` is `1` for every constructor. Runtime rank price is `tier × cost`
 
 - No official semantic version was found for Steam build `24333424`; the project identifies it by installed build ID.
 - Effect values and formulas are retained exactly where the installed localization represents them. Conditional prose is not converted into executable mathematical evaluators in Phase 2.
-- Grid coordinates come from the native constructor sequence within each tier and match the current screen's seven-column rows. The row structure was fully compared; not all 102 named tooltips were individually hovered during the practical screen check, so the snapshot records the ordering rule for auditability.
+- Tier 1–5 coordinates come from the tracked build-specific live-observation record `prestige-display-order-build-24333424.json`. Tier 6 temporarily retains native constructor order only as an unverified placeholder; it must be replaced after the tier is unlocked and its tooltips can be observed.
 - Ascension and run-upgrade requirements are structured only when the installed effect data states them. Direct `dependencies` remain empty because the native node record has no dependency field; related nodes are separately typed so an effect relationship is not mislabeled as a purchase prerequisite.
 - Sprite indices identify relationships only. Proprietary sprites, audio, executables, localization files, saves, disassembly, and full raw metadata are intentionally absent from source control.
 

@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "databaseId": "steam-4078200-build-24333424",
-  "capturedAt": "2026-08-23",
+  "capturedAt": "2026-08-24",
   "game": {
     "steamAppId": 4078200,
     "steamBuildId": "24333424",
@@ -45,7 +45,7 @@
       "fields": [
         "tier counts",
         "seven-column row layout",
-        "constructor-order placement",
+        "Tier 1-5 tooltip-identified positions",
         "tier unlock thresholds"
       ]
     },
@@ -98,7 +98,18 @@
   },
   "layout": {
     "columns": 7,
-    "rule": "Filter native constructor order by tier, then fill rows left to right."
+    "rule": "Fill rows left to right using live tooltip-identified display order where available.",
+    "verifiedTiers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "unresolvedTiers": [
+      6
+    ],
+    "unresolvedFallback": "Native constructor order; retained only as an explicitly unverified placeholder because Tier 6 is locked in the observed save."
   },
   "nodes": [
     {
@@ -106,8 +117,10 @@
       "name": "Swift Start",
       "tier": 1,
       "position": {
-        "row": 0,
-        "column": 0
+        "row": 1.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -145,8 +158,10 @@
       "name": "Housing Batches",
       "tier": 1,
       "position": {
-        "row": 0,
-        "column": 1
+        "row": 0.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -184,8 +199,10 @@
       "name": "Mountain Recruits",
       "tier": 1,
       "position": {
-        "row": 0,
-        "column": 2
+        "row": 0.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -223,8 +240,10 @@
       "name": "Golden Inheritance",
       "tier": 1,
       "position": {
-        "row": 0,
-        "column": 3
+        "row": 1.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -262,8 +281,10 @@
       "name": "Veteran Settlers",
       "tier": 1,
       "position": {
-        "row": 0,
-        "column": 4
+        "row": 1.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -301,8 +322,10 @@
       "name": "Ancient Cache",
       "tier": 1,
       "position": {
-        "row": 0,
-        "column": 5
+        "row": 1.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -340,8 +363,10 @@
       "name": "Shiny Reserves",
       "tier": 1,
       "position": {
-        "row": 0,
-        "column": 6
+        "row": 1.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -379,8 +404,10 @@
       "name": "Looming Motivation",
       "tier": 1,
       "position": {
-        "row": 1,
-        "column": 0
+        "row": 1.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -418,8 +445,10 @@
       "name": "Heirloom Inheritance",
       "tier": 1,
       "position": {
-        "row": 1,
-        "column": 1
+        "row": 1.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -457,8 +486,10 @@
       "name": "Wakeful Slap Mastery",
       "tier": 1,
       "position": {
-        "row": 1,
-        "column": 2
+        "row": 0.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -496,8 +527,10 @@
       "name": "Cyberdwarf",
       "tier": 2,
       "position": {
-        "row": 0,
-        "column": 0
+        "row": 0.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -542,8 +575,10 @@
       "name": "Powder Hall",
       "tier": 2,
       "position": {
-        "row": 0,
-        "column": 1
+        "row": 2.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -594,8 +629,10 @@
       "name": "Ritual Power",
       "tier": 2,
       "position": {
-        "row": 0,
-        "column": 2
+        "row": 2.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -633,8 +670,10 @@
       "name": "Acquisitions Incorporated",
       "tier": 2,
       "position": {
-        "row": 0,
-        "column": 3
+        "row": 0.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -672,8 +711,10 @@
       "name": "Relic Grant",
       "tier": 2,
       "position": {
-        "row": 0,
-        "column": 4
+        "row": 0.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -711,8 +752,10 @@
       "name": "Prospector's Omens",
       "tier": 2,
       "position": {
-        "row": 0,
-        "column": 5
+        "row": 2.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -750,8 +793,10 @@
       "name": "Fleet-Footed And Rock-Hard",
       "tier": 2,
       "position": {
-        "row": 0,
-        "column": 6
+        "row": 2.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -789,8 +834,10 @@
       "name": "Panic Stride",
       "tier": 2,
       "position": {
-        "row": 1,
-        "column": 0
+        "row": 0.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -828,8 +875,10 @@
       "name": "Crisis Reflexes",
       "tier": 2,
       "position": {
-        "row": 1,
-        "column": 1
+        "row": 0.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -867,8 +916,10 @@
       "name": "Marching Orders",
       "tier": 2,
       "position": {
-        "row": 1,
-        "column": 2
+        "row": 3.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -906,8 +957,10 @@
       "name": "Field Recruits",
       "tier": 2,
       "position": {
-        "row": 1,
-        "column": 3
+        "row": 3.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -945,8 +998,10 @@
       "name": "Enduring Embers",
       "tier": 2,
       "position": {
-        "row": 1,
-        "column": 4
+        "row": 1.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -984,8 +1039,10 @@
       "name": "Mountain's Hidden Veins",
       "tier": 1,
       "position": {
-        "row": 1,
-        "column": 3
+        "row": 0.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1023,8 +1080,10 @@
       "name": "Hard Carries",
       "tier": 2,
       "position": {
-        "row": 1,
-        "column": 5
+        "row": 2.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1062,8 +1121,10 @@
       "name": "Orequake Finger",
       "tier": 1,
       "position": {
-        "row": 1,
-        "column": 4
+        "row": 0.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1101,8 +1162,10 @@
       "name": "Guild Apprentices",
       "tier": 1,
       "position": {
-        "row": 1,
-        "column": 5
+        "row": 0.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1140,8 +1203,10 @@
       "name": "Explosive Interns",
       "tier": 1,
       "position": {
-        "row": 1,
-        "column": 6
+        "row": 0.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1179,8 +1244,10 @@
       "name": "Ash-Eater Recruits",
       "tier": 2,
       "position": {
-        "row": 1,
-        "column": 6
+        "row": 1.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1218,8 +1285,10 @@
       "name": "Buried Heirlooms Newspaper",
       "tier": 2,
       "position": {
-        "row": 2,
-        "column": 0
+        "row": 0.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -1257,8 +1326,10 @@
       "name": "Beamweaver Graduates",
       "tier": 3,
       "position": {
-        "row": 0,
-        "column": 0
+        "row": 1.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1296,8 +1367,10 @@
       "name": "Piercing Trainees",
       "tier": 2,
       "position": {
-        "row": 2,
-        "column": 1
+        "row": 1.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1335,8 +1408,10 @@
       "name": "Gyro-Stabilized Emplacements",
       "tier": 2,
       "position": {
-        "row": 2,
-        "column": 2
+        "row": 3.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1374,8 +1449,10 @@
       "name": "Manufactorum",
       "tier": 3,
       "position": {
-        "row": 0,
-        "column": 1
+        "row": 1.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -1413,8 +1490,10 @@
       "name": "Fated Finds",
       "tier": 2,
       "position": {
-        "row": 2,
-        "column": 3
+        "row": 1.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1452,8 +1531,10 @@
       "name": "Eternal Feasting",
       "tier": 3,
       "position": {
-        "row": 0,
-        "column": 2
+        "row": 0.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -1491,8 +1572,10 @@
       "name": "Hand of God",
       "tier": 4,
       "position": {
-        "row": 0,
-        "column": 0
+        "row": 2.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1530,8 +1613,10 @@
       "name": "Rapturous Gaze",
       "tier": 4,
       "position": {
-        "row": 0,
-        "column": 1
+        "row": 0.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1569,8 +1654,10 @@
       "name": "Rocket Salvo",
       "tier": 3,
       "position": {
-        "row": 0,
-        "column": 3
+        "row": 0.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1608,8 +1695,10 @@
       "name": "Advanced Bull Turret",
       "tier": 4,
       "position": {
-        "row": 0,
-        "column": 2
+        "row": 0.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -1647,8 +1736,10 @@
       "name": "Runesmith Clan",
       "tier": 2,
       "position": {
-        "row": 2,
-        "column": 4
+        "row": 1.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1686,8 +1777,10 @@
       "name": "Scientist Clan",
       "tier": 2,
       "position": {
-        "row": 2,
-        "column": 5
+        "row": 1.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1725,8 +1818,10 @@
       "name": "Ancestor's Picks",
       "tier": 2,
       "position": {
-        "row": 2,
-        "column": 6
+        "row": 2.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -1764,8 +1859,10 @@
       "name": "Ballista Lore",
       "tier": 3,
       "position": {
-        "row": 0,
-        "column": 4
+        "row": 0.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -1803,8 +1900,10 @@
       "name": "Powder Keg Lineage",
       "tier": 2,
       "position": {
-        "row": 3,
-        "column": 0
+        "row": 0.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -1842,8 +1941,10 @@
       "name": "Infernal Fortune",
       "tier": 3,
       "position": {
-        "row": 0,
-        "column": 5
+        "row": 0.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -1881,8 +1982,10 @@
       "name": "Favored by Fortune",
       "tier": 3,
       "position": {
-        "row": 0,
-        "column": 6
+        "row": 0.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -1920,8 +2023,10 @@
       "name": "Beam Mastery",
       "tier": 3,
       "position": {
-        "row": 1,
-        "column": 0
+        "row": 1.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -1959,8 +2064,10 @@
       "name": "Deep Penetration",
       "tier": 3,
       "position": {
-        "row": 1,
-        "column": 1
+        "row": 0.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -1998,8 +2105,10 @@
       "name": "Mountain's Buried Treasures",
       "tier": 3,
       "position": {
-        "row": 1,
-        "column": 2
+        "row": 1.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -2037,8 +2146,10 @@
       "name": "Blast Aegis",
       "tier": 2,
       "position": {
-        "row": 3,
-        "column": 1
+        "row": 2.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -2076,8 +2187,10 @@
       "name": "Controlled Demolition",
       "tier": 4,
       "position": {
-        "row": 0,
-        "column": 3
+        "row": 0.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2115,8 +2228,10 @@
       "name": "Soul Tithes",
       "tier": 3,
       "position": {
-        "row": 1,
-        "column": 3
+        "row": 1.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2154,8 +2269,10 @@
       "name": "Spelunker's Guild",
       "tier": 3,
       "position": {
-        "row": 1,
-        "column": 4
+        "row": 1.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2193,8 +2310,10 @@
       "name": "Meadhall",
       "tier": 4,
       "position": {
-        "row": 0,
-        "column": 4
+        "row": 1.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2232,8 +2351,10 @@
       "name": "Holy Pickaxe",
       "tier": 2,
       "position": {
-        "row": 3,
-        "column": 2
+        "row": 1.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -2271,8 +2392,10 @@
       "name": "Stalwart Legacy",
       "tier": 4,
       "position": {
-        "row": 0,
-        "column": 5
+        "row": 2.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2310,8 +2433,10 @@
       "name": "Undermined Foundations",
       "tier": 3,
       "position": {
-        "row": 1,
-        "column": 5
+        "row": 0.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -2349,8 +2474,10 @@
       "name": "Key Master",
       "tier": 3,
       "position": {
-        "row": 1,
-        "column": 6
+        "row": 1.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -2388,8 +2515,10 @@
       "name": "Ascetic Rites",
       "tier": 4,
       "position": {
-        "row": 0,
-        "column": 6
+        "row": 2.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -2427,8 +2556,10 @@
       "name": "Relentless Liturgies",
       "tier": 4,
       "position": {
-        "row": 1,
-        "column": 0
+        "row": 2.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -2466,8 +2597,10 @@
       "name": "Turret Railgun",
       "tier": 4,
       "position": {
-        "row": 1,
-        "column": 1
+        "row": 2.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2505,8 +2638,10 @@
       "name": "Martial Culture",
       "tier": 4,
       "position": {
-        "row": 1,
-        "column": 2
+        "row": 0.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -2544,8 +2679,10 @@
       "name": "Soulbound Legacy",
       "tier": 2,
       "position": {
-        "row": 3,
-        "column": 3
+        "row": 3.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2583,8 +2720,10 @@
       "name": "Soul Echoes",
       "tier": 2,
       "position": {
-        "row": 3,
-        "column": 4
+        "row": 3.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2622,8 +2761,10 @@
       "name": "Master Enchanters",
       "tier": 4,
       "position": {
-        "row": 1,
-        "column": 3
+        "row": 1.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -2661,8 +2802,10 @@
       "name": "Yeeti Arms",
       "tier": 4,
       "position": {
-        "row": 1,
-        "column": 4
+        "row": 2.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -2700,8 +2843,10 @@
       "name": "Gemcraft",
       "tier": 4,
       "position": {
-        "row": 1,
-        "column": 5
+        "row": 1.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -2739,8 +2884,10 @@
       "name": "Flamelords",
       "tier": 4,
       "position": {
-        "row": 1,
-        "column": 6
+        "row": 2.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2778,8 +2925,10 @@
       "name": "Geode Sanctum",
       "tier": 4,
       "position": {
-        "row": 2,
-        "column": 0
+        "row": 1.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2817,8 +2966,10 @@
       "name": "Shrine",
       "tier": 5,
       "position": {
-        "row": 0,
-        "column": 0
+        "row": 0.0,
+        "column": 5,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2856,8 +3007,10 @@
       "name": "Explosives Kit",
       "tier": 4,
       "position": {
-        "row": 2,
-        "column": 1
+        "row": 1.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2895,8 +3048,10 @@
       "name": "Mapped Destruction",
       "tier": 4,
       "position": {
-        "row": 2,
-        "column": 2
+        "row": 1.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -2940,8 +3095,10 @@
       "name": "Greyglitter Leylines",
       "tier": 4,
       "position": {
-        "row": 2,
-        "column": 3
+        "row": 0.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -2979,8 +3136,10 @@
       "name": "C.L.U.S.T.E.R.P.I.C.K.",
       "tier": 4,
       "position": {
-        "row": 2,
-        "column": 4
+        "row": 0.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -3024,8 +3183,10 @@
       "name": "Alchemy",
       "tier": 4,
       "position": {
-        "row": 2,
-        "column": 5
+        "row": 0.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -3063,8 +3224,10 @@
       "name": "Nuclear Research",
       "tier": 4,
       "position": {
-        "row": 2,
-        "column": 6
+        "row": 1.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -3108,8 +3271,10 @@
       "name": "Vault of Kings",
       "tier": 5,
       "position": {
-        "row": 0,
-        "column": 1
+        "row": 0.0,
+        "column": 0,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -3147,8 +3312,10 @@
       "name": "Divine Relic",
       "tier": 5,
       "position": {
-        "row": 0,
-        "column": 2
+        "row": 0.0,
+        "column": 1,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -3186,8 +3353,10 @@
       "name": "Speleological Domination",
       "tier": 5,
       "position": {
-        "row": 0,
-        "column": 3
+        "row": 0.0,
+        "column": 2,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -3225,8 +3394,10 @@
       "name": "Denbreakers",
       "tier": 5,
       "position": {
-        "row": 0,
-        "column": 4
+        "row": 0.0,
+        "column": 6,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -3264,8 +3435,10 @@
       "name": "High-Functioning Alcoholics",
       "tier": 5,
       "position": {
-        "row": 0,
-        "column": 5
+        "row": 0.0,
+        "column": 4,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -3303,8 +3476,10 @@
       "name": "Lust For Rock And Stone",
       "tier": 5,
       "position": {
-        "row": 0,
-        "column": 6
+        "row": 0.0,
+        "column": 3,
+        "source": "live-tooltip-observation",
+        "confidence": "verified"
       },
       "maxRank": 4,
       "repeatable": false,
@@ -3342,8 +3517,10 @@
       "name": "Vault of Gods",
       "tier": 6,
       "position": {
-        "row": 0,
-        "column": 0
+        "row": 0.0,
+        "column": 0,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": 5,
       "repeatable": false,
@@ -3402,8 +3579,10 @@
       "name": "Divine Archives",
       "tier": 6,
       "position": {
-        "row": 0,
-        "column": 1
+        "row": 0.0,
+        "column": 1,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": 1,
       "repeatable": false,
@@ -3459,8 +3638,10 @@
       "name": "Endless Conquest",
       "tier": 6,
       "position": {
-        "row": 0,
-        "column": 2
+        "row": 0.0,
+        "column": 2,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3497,8 +3678,10 @@
       "name": "Endless Invocations",
       "tier": 6,
       "position": {
-        "row": 0,
-        "column": 3
+        "row": 0.0,
+        "column": 3,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3537,8 +3720,10 @@
       "name": "Pantheon",
       "tier": 6,
       "position": {
-        "row": 0,
-        "column": 4
+        "row": 0.0,
+        "column": 4,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -3585,8 +3770,10 @@
       "name": "Endless Picks",
       "tier": 6,
       "position": {
-        "row": 0,
-        "column": 5
+        "row": 0.0,
+        "column": 5,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3625,8 +3812,10 @@
       "name": "Endless Balls",
       "tier": 6,
       "position": {
-        "row": 0,
-        "column": 6
+        "row": 0.0,
+        "column": 6,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3665,8 +3854,10 @@
       "name": "Endless Explosions",
       "tier": 6,
       "position": {
-        "row": 1,
-        "column": 0
+        "row": 1.0,
+        "column": 0,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3705,8 +3896,10 @@
       "name": "Endless Blaze",
       "tier": 6,
       "position": {
-        "row": 1,
-        "column": 1
+        "row": 1.0,
+        "column": 1,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3745,8 +3938,10 @@
       "name": "Endless Lasers",
       "tier": 6,
       "position": {
-        "row": 1,
-        "column": 2
+        "row": 1.0,
+        "column": 2,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3785,8 +3980,10 @@
       "name": "Endless Penetration",
       "tier": 6,
       "position": {
-        "row": 1,
-        "column": 3
+        "row": 1.0,
+        "column": 3,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3825,8 +4022,10 @@
       "name": "Golden World",
       "tier": 6,
       "position": {
-        "row": 1,
-        "column": 4
+        "row": 1.0,
+        "column": 4,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3863,8 +4062,10 @@
       "name": "Ascended Mithril Cache",
       "tier": 6,
       "position": {
-        "row": 1,
-        "column": 5
+        "row": 1.0,
+        "column": 5,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3903,8 +4104,10 @@
       "name": "Ascended Soul Cache",
       "tier": 6,
       "position": {
-        "row": 1,
-        "column": 6
+        "row": 1.0,
+        "column": 6,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3943,8 +4146,10 @@
       "name": "Ascended Gold Cache",
       "tier": 6,
       "position": {
-        "row": 2,
-        "column": 0
+        "row": 2.0,
+        "column": 0,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -3983,8 +4188,10 @@
       "name": "Endless Mithril Fortune",
       "tier": 6,
       "position": {
-        "row": 2,
-        "column": 1
+        "row": 2.0,
+        "column": 1,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -4023,8 +4230,10 @@
       "name": "Primordial Hunger",
       "tier": 6,
       "position": {
-        "row": 2,
-        "column": 2
+        "row": 2.0,
+        "column": 2,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": null,
       "repeatable": true,
@@ -4063,8 +4272,10 @@
       "name": "King Of The Spire",
       "tier": 6,
       "position": {
-        "row": 2,
-        "column": 3
+        "row": 2.0,
+        "column": 3,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": 2,
       "repeatable": false,
@@ -4111,8 +4322,10 @@
       "name": "Ancestral Halls",
       "tier": 6,
       "position": {
-        "row": 2,
-        "column": 4
+        "row": 2.0,
+        "column": 4,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": 3,
       "repeatable": false,
@@ -4181,8 +4394,10 @@
       "name": "Foundations of Stone",
       "tier": 6,
       "position": {
-        "row": 2,
-        "column": 5
+        "row": 2.0,
+        "column": 5,
+        "source": "constructor-order-derived",
+        "confidence": "unverified"
       },
       "maxRank": 2,
       "repeatable": false,
