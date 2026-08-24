@@ -423,3 +423,495 @@
     width: 650px;
   }
 }
+
+/* Standalone game-inspired preview. Original selectors above remain the default. */
+.app-shell[data-visual-mode="game-inspired"] .prestige-page {
+  min-width: 0;
+  padding: 20px;
+  background: rgb(39 78 106 / 88%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-page__header {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.66fr) minmax(650px, 1.34fr);
+  gap: 18px;
+  align-items: end;
+  padding: 0 0 16px;
+  border-bottom: 3px solid var(--preview-line);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-page h1 {
+  max-width: none;
+  font-size: clamp(1.35rem, 2.6vw, 2.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-page__instructions {
+  max-width: 48ch;
+  margin: 10px 0 0;
+  color: var(--preview-muted);
+  font-size: 0.58rem;
+  line-height: 1.55;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters {
+  grid-template-columns: minmax(145px, 1.3fr) minmax(118px, 1fr) repeat(3, minmax(82px, 0.72fr));
+  min-width: 0;
+  border: 3px solid var(--preview-line);
+  background: var(--preview-panel-deep);
+  box-shadow: 5px 6px 13px rgb(8 26 41 / 43%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters > div,
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters label {
+  min-height: 66px;
+  padding: 9px 10px;
+  border-right: 2px solid var(--preview-line);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters span {
+  min-height: 2.25em;
+  color: var(--preview-muted);
+  font: 400 0.5rem/1.35 "Silkscreen", monospace;
+  letter-spacing: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters strong,
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters input {
+  color: var(--preview-yellow);
+  font: 700 0.92rem/1.2 "Silkscreen", monospace;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters input {
+  min-height: 28px;
+  border-bottom: 2px solid var(--preview-yellow);
+  caret-color: var(--preview-yellow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-counters input:focus {
+  border-color: var(--preview-ink);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-workbench {
+  grid-template-columns: minmax(570px, 1fr) minmax(290px, 330px);
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tree {
+  gap: 0;
+  padding: 12px;
+  border: 3px solid var(--preview-line);
+  background: rgb(47 91 116 / 92%);
+  box-shadow: 5px 6px 13px rgb(8 26 41 / 43%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier {
+  grid-template-columns: 98px minmax(0, 1fr);
+  border: 0;
+  border-top: 3px solid var(--preview-line);
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier:first-child {
+  border-top: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier__header {
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 12px 8px;
+  border-right: 0;
+  background: transparent;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier__header > div {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier__header h2 {
+  color: var(--preview-ink);
+  font: 700 0.75rem/1.15 "Silkscreen", monospace;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier__header p {
+  margin: 0;
+  color: var(--preview-muted);
+  font: 400 0.47rem/1.45 "Silkscreen", monospace;
+  letter-spacing: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier__roman {
+  width: auto;
+  height: auto;
+  color: var(--preview-yellow);
+  background: transparent;
+  box-shadow: none;
+  font: 700 0.72rem/1.1 "Silkscreen", monospace;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tier__grid {
+  grid-template-columns: repeat(7, minmax(62px, 1fr));
+  gap: 9px;
+  padding: 10px 8px 12px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node-control,
+.app-shell[data-visual-mode="game-inspired"] .prestige-node {
+  min-width: 62px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node {
+  min-height: 82px;
+  padding: 5px 4px 19px;
+  border: 3px solid var(--preview-ink);
+  color: var(--preview-ink);
+  background: var(--preview-panel-deep);
+  box-shadow: 3px 4px 9px rgb(8 26 41 / 46%);
+  image-rendering: pixelated;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node:hover,
+.app-shell[data-visual-mode="game-inspired"] .prestige-node:focus-visible {
+  border-color: var(--preview-yellow);
+  outline: 0;
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px var(--preview-shadow), 0 0 0 5px var(--preview-yellow), 0 7px 12px rgb(8 26 41 / 48%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node[data-selected="true"] {
+  border-color: var(--preview-yellow);
+  outline: 3px solid #77e7ff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--preview-shadow), 0 7px 12px rgb(8 26 41 / 48%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node[data-state="partial"],
+.app-shell[data-visual-mode="game-inspired"] .prestige-node--maxed {
+  border-color: var(--preview-yellow);
+  color: var(--preview-yellow);
+  background: #3f7896;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node--maxed {
+  box-shadow: inset 0 0 0 3px rgb(255 227 59 / 22%), 3px 4px 9px rgb(8 26 41 / 46%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node--locked {
+  border-color: #91aeb9;
+  color: #a9c0c8;
+  background: #28485e;
+  box-shadow: 3px 4px 9px rgb(8 26 41 / 38%);
+  filter: saturate(0.35) brightness(0.82);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node--locked:hover,
+.app-shell[data-visual-mode="game-inspired"] .prestige-node--locked:focus-visible,
+.app-shell[data-visual-mode="game-inspired"] .prestige-node--locked[data-selected="true"] {
+  border-color: var(--preview-ink);
+  box-shadow: 0 0 0 2px var(--preview-shadow), 0 0 0 5px var(--preview-muted), 0 7px 12px rgb(8 26 41 / 42%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__icon {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  color: currentcolor;
+  background: transparent;
+  font: 700 0.58rem/1 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__icon img {
+  image-rendering: pixelated;
+  filter: drop-shadow(2px 2px 0 var(--preview-shadow));
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__cost {
+  top: -3px;
+  right: -3px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--preview-panel-dark);
+  color: var(--preview-panel-dark);
+  background: var(--preview-ink);
+  font: 700 0.54rem/1 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node[data-state="partial"] .prestige-node__cost,
+.app-shell[data-visual-mode="game-inspired"] .prestige-node--maxed .prestige-node__cost {
+  background: var(--preview-yellow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__rank {
+  bottom: 7px;
+  gap: 4px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__rank > span:not(.prestige-node__infinite) {
+  width: 7px;
+  height: 5px;
+  border: 0;
+  transform: none;
+  background: #89aebe;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__rank > span.is-filled {
+  background: var(--preview-yellow);
+  box-shadow: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__infinite {
+  color: currentcolor;
+  font: 400 0.48rem/1 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__decrement {
+  right: -5px;
+  bottom: -5px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--preview-ink);
+  color: var(--preview-ink);
+  background: var(--preview-panel-dark);
+  font: 700 0.72rem/1 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__decrement:hover,
+.app-shell[data-visual-mode="game-inspired"] .prestige-node__decrement:focus-visible {
+  border-color: var(--preview-yellow);
+  color: var(--preview-yellow);
+  outline: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-detail {
+  top: 12px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure > summary {
+  display: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip {
+  padding: 16px;
+  border: 3px solid var(--preview-line);
+  color: var(--preview-ink);
+  background: rgb(35 73 98 / 97%);
+  box-shadow: 5px 6px 13px rgb(8 26 41 / 46%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip__eyebrow {
+  color: var(--preview-muted);
+  font: 400 0.49rem/1.5 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip h3 {
+  margin: 7px 0 0;
+  color: var(--preview-blue);
+  font: 700 0.88rem/1.3 "Silkscreen", monospace;
+  overflow-wrap: anywhere;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip__rank {
+  margin: 8px 0 0;
+  color: var(--preview-yellow);
+  font-size: 0.68rem;
+  line-height: 1.35;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip__rule {
+  height: 3px;
+  margin: 13px 0;
+  background: var(--preview-line);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip dl {
+  gap: 12px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip dt {
+  color: var(--preview-yellow);
+  font: 700 0.5rem/1.45 "Silkscreen", monospace;
+  letter-spacing: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip dd {
+  margin-top: 3px;
+  color: var(--preview-ink);
+  font: 400 0.6rem/1.58 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip__source,
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip__optimizer {
+  color: var(--preview-muted);
+  font: 400 0.49rem/1.55 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .prestige-tooltip__source {
+  border-top: 2px solid #85afbe;
+}
+
+@media (max-width: 1180px) {
+  .app-shell[data-visual-mode="game-inspired"] .prestige-page__header {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-workbench {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell[data-visual-mode="game-inspired"] .prestige-page {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 8px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-page__header {
+    gap: 14px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-page h1 {
+    font-size: clamp(1.4rem, 8vw, 2rem);
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-counters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-counters > div,
+  .app-shell[data-visual-mode="game-inspired"] .prestige-counters label {
+    min-height: 62px;
+    border-right: 2px solid var(--preview-line);
+    border-bottom: 2px solid var(--preview-line);
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-counters > :last-child {
+    grid-column: 1 / -1;
+    border-bottom: 0;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-workbench {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-tree {
+    overflow-x: visible;
+    min-width: 0;
+    width: 100%;
+    padding: 7px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-tier {
+    grid-template-columns: 78px minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-tier__header {
+    padding: 10px 5px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-tier__grid {
+    grid-template-columns: repeat(3, minmax(56px, 1fr));
+    gap: 8px;
+    padding: 9px 4px 11px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-node-control,
+  .app-shell[data-visual-mode="game-inspired"] .prestige-node {
+    min-width: 56px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-node {
+    min-height: 76px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-node__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure {
+    position: fixed;
+    z-index: 30;
+    inset: auto 8px 8px;
+    overflow: hidden;
+    max-height: min(46vh, 390px);
+    border: 3px solid var(--preview-line);
+    background: var(--preview-panel-deep);
+    box-shadow: 0 -7px 20px rgb(7 23 37 / 44%);
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure > summary {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 11px;
+    color: var(--preview-yellow);
+    background: var(--preview-panel-dark);
+    cursor: pointer;
+    font-size: 0.5rem;
+    line-height: 1.35;
+    list-style: none;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure > summary::before {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    border: 2px solid var(--preview-yellow);
+    content: "";
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure > summary strong {
+    overflow: hidden;
+    max-width: 48%;
+    color: var(--preview-ink);
+    font-size: 0.52rem;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure[open] > summary {
+    border-bottom: 2px solid var(--preview-line);
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure[open] > summary::before {
+    background: var(--preview-yellow);
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .prestige-detail--disclosure .prestige-tooltip {
+    overflow-y: auto;
+    max-height: calc(min(46vh, 390px) - 50px);
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    scrollbar-color: var(--preview-yellow) var(--preview-panel-dark);
+    scrollbar-width: thin;
+  }
+}

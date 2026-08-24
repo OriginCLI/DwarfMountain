@@ -17,6 +17,7 @@ const pages = [
 ] as const
 
 type RouteId = (typeof pages)[number]['id']
+type VisualMode = 'original' | 'game-inspired'
 
 function parseRoute(hash: string): RouteId {
   const candidate = hash.replace(/^#/, '')
@@ -39,10 +40,19 @@ function useHashRoute(): RouteId {
 export function App() {
   const route = useHashRoute()
   const [profile, updateProfile] = useActiveProfile()
+  const [visualMode, setVisualMode] = useState<VisualMode>('original')
   const currentPage = pages.find((page) => page.id === route) ?? pages[0]
 
   return (
-    <main className="app-shell">
+    <main className="app-shell" data-visual-mode={visualMode}>
+      {visualMode === 'game-inspired' && (
+        <div className="game-preview-scene" aria-hidden="true">
+          <span className="game-preview-scene__sun" />
+          <span className="game-preview-scene__ridge game-preview-scene__ridge--far" />
+          <span className="game-preview-scene__ridge game-preview-scene__ridge--near" />
+          <span className="game-preview-scene__ground" />
+        </div>
+      )}
       <header className="masthead">
         <a className="brand" href="#dashboard" aria-label="Dwarf Eats Mountain Companion home">
           <span className="brand-mark" aria-hidden="true">✦</span>
@@ -51,36 +61,70 @@ export function App() {
             <strong>Dwarf Eats Mountain Companion</strong>
           </span>
         </a>
-        <p className="build-stamp">DATA: BUILD {prestigeDatabase.game.steamBuildId} · ORDER CHECKED 24 AUG 2026</p>
+        <div className="masthead__tools">
+          {visualMode === 'game-inspired' && <p className="preview-mode-label">Standalone companion preview</p>}
+          <p className="build-stamp">DATA: BUILD {prestigeDatabase.game.steamBuildId} · ORDER CHECKED 24 AUG 2026</p>
+          <InterfaceVersionSwitch value={visualMode} onChange={setVisualMode} />
+        </div>
       </header>
 
       <div className={`app-frame ${route === 'prestige' ? 'app-frame--prestige' : ''}`}>
         <nav className="rail" aria-label="Companion navigation">
           <p className="rail-label">EXPEDITION BOARD</p>
-          <ul>
-            {pages.map((page) => {
-              const isCurrent = page.id === route
-              return (
-                <li key={page.id}>
-                  <a href={`#${page.id}`} aria-current={isCurrent ? 'page' : undefined}>
-                    <span aria-hidden="true">{page.id === 'prestige' ? '◆' : '·'}</span>
-                    {page.label}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
+          <div className="rail-scroll-shell">
+            <ul>
+              {pages.map((page) => {
+                const isCurrent = page.id === route
+                return (
+                  <li key={page.id}>
+                    <a href={`#${page.id}`} aria-current={isCurrent ? 'page' : undefined}>
+                      <span className="nav-mark" aria-hidden="true" />
+                      {page.label}
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+            {visualMode === 'game-inspired' && <span className="rail-scroll-cue">Scroll routes</span>}
+          </div>
         </nav>
 
         {route === 'dashboard' ? (
           <Dashboard profileName={profile?.name ?? 'Opening profile vault…'} />
         ) : route === 'prestige' && profile !== null ? (
-          <PrestigePage profile={profile} onProfileChange={updateProfile} />
+          <PrestigePage
+            profile={profile}
+            onProfileChange={updateProfile}
+            previewMode={visualMode === 'game-inspired'}
+          />
         ) : (
           <PlaceholderPage page={currentPage} />
         )}
       </div>
     </main>
+  )
+}
+
+function InterfaceVersionSwitch({ value, onChange }: { value: VisualMode; onChange: (mode: VisualMode) => void }) {
+  return (
+    <div className="interface-version-switch" role="group" aria-label="Interface version">
+      <button
+        type="button"
+        aria-label="Original interface"
+        aria-pressed={value === 'original'}
+        onClick={() => onChange('original')}
+      >
+        Original
+      </button>
+      <button
+        type="button"
+        aria-label="Game-inspired preview"
+        aria-pressed={value === 'game-inspired'}
+        onClick={() => onChange('game-inspired')}
+      >
+        Game-inspired preview
+      </button>
+    </div>
   )
 }
 

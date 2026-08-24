@@ -60,7 +60,7 @@ export function PrestigeNode({
         if (!locked) onDecrement(upgrade)
       }}
       onFocus={() => onSelect(upgrade)}
-      onMouseEnter={() => onSelect(upgrade)}
+      onMouseMove={() => onSelect(upgrade)}
       onKeyDown={(event) => {
         if ((event.key === 'ArrowDown' || event.key === 'Delete' || event.key === 'Backspace') && rank > 0) {
           event.preventDefault()

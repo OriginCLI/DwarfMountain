@@ -20,6 +20,17 @@ Verified on 2026-08-23 with Playwright 1.62.1 against locally installed Chrome a
 
 These images show the companion's original UI and generated text-glyph placeholders. No image from the installed game is present in either capture or in the repository.
 
+## Optional game-inspired preview
+
+Verified on 2026-08-24 as a separate, opt-in companion interface. The original interface remains the default.
+
+- The masthead switch enters the game-inspired preview and returns to Original without changing the current route or edited Prestige rank.
+- The desktop preview retains the seven-column tree and adjacent selected-upgrade inspection panel.
+- The `390 × 844` preview uses a three-column tree, a visible horizontal-route scroll cue, and a bounded selected-upgrade disclosure without horizontal page overflow.
+- The original pixel mountain background and preview mark are repository-owned assets. Optional local game icons remain under the ignored proprietary-asset boundary.
+- [Desktop game-inspired preview](./prestige-game-inspired-desktop.png) — full-page desktop capture.
+- [Compact game-inspired preview](./prestige-game-inspired-mobile.png) — `390 × 844` full-page capture.
+
 ## Command
 
 ```powershell

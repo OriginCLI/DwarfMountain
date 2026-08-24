@@ -14,6 +14,7 @@ import './prestige.css'
 interface PrestigePageProps {
   profile: PlayerProfile
   onProfileChange: (profile: PlayerProfile) => void
+  previewMode?: boolean
 }
 
 export function calculatePrestigeSpent(ranks: Readonly<Record<string, number>>): number {
@@ -28,7 +29,7 @@ function comparePrestigePosition(left: InstalledPrestigeUpgrade, right: Installe
   return left.position.row - right.position.row || left.position.column - right.position.column
 }
 
-export function PrestigePage({ profile, onProfileChange }: PrestigePageProps) {
+export function PrestigePage({ profile, onProfileChange, previewMode = false }: PrestigePageProps) {
   const firstDisplayedUpgrade = prestigeUpgrades
     .filter((upgrade) => upgrade.tier === 1)
     .sort(comparePrestigePosition)[0]
@@ -196,7 +197,20 @@ export function PrestigePage({ profile, onProfileChange }: PrestigePageProps) {
             )
           })}
         </div>
-        {selectedUpgrade !== undefined && (
+        {selectedUpgrade !== undefined && (previewMode ? (
+          <details className="prestige-detail prestige-detail--disclosure" key={selectedUpgrade.id} open>
+            <summary>
+              <span>Selected upgrade details</span>
+              <strong>{selectedUpgrade.name}</strong>
+            </summary>
+            <PrestigeTooltip
+              upgrade={selectedUpgrade}
+              rank={Math.max(0, Math.trunc(profile.prestigeRanks[selectedUpgrade.id] ?? 0))}
+              unlockSpent={prestigeDatabase.tierUnlocks[selectedUpgrade.tier - 1]}
+              ascensionRank={profile.meta.ascensionRank}
+            />
+          </details>
+        ) : (
           <div className="prestige-detail">
             <PrestigeTooltip
               upgrade={selectedUpgrade}
@@ -205,7 +219,7 @@ export function PrestigePage({ profile, onProfileChange }: PrestigePageProps) {
               ascensionRank={profile.meta.ascensionRank}
             />
           </div>
-        )}
+        ))}
       </div>
     </section>
   )

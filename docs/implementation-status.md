@@ -39,3 +39,13 @@
 ## Later phases
 
 Mechanics references, catalog content, prestige optimization, progression planning, diagnostics, and patch migration remain outside Phases 0–2. The Phase 2 tooltip labels optimizer guidance unavailable rather than fabricating a recommendation.
+
+## Optional game-inspired preview
+
+| Gate | Status | Evidence |
+| --- | --- | --- |
+| Preserve the original interface | Complete | Original is the default on every mount; the masthead switch can opt into and back out of the preview without changing route or Prestige ranks. |
+| Apply a standalone game-inspired visual language | Complete | The preview is scoped under `data-visual-mode="game-inspired"` and uses an original mountain scene, locally hosted open font, square pixel controls, and optional ignored local Prestige icons. |
+| Keep preview states accessible | Complete | Ownership, selection, locking, focus, and rank changes use redundant color, framing, labels, and keyboard behavior. |
+| Verify desktop and compact layouts | Complete | `docs/verification/prestige-game-inspired-desktop.png`, `prestige-game-inspired-mobile.png`, and `phase-2-browser-evidence.md`. |
+| Capture the implemented design system | Complete | Root `DESIGN.md` and `.impeccable/design.json`; both explicitly retain Original as the default available mode. |

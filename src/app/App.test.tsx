@@ -24,6 +24,32 @@ describe('App', () => {
     expect(screen.getByRole('link', { name: 'Prestige' })).toHaveAttribute('aria-current', 'page')
   })
 
+  it('keeps the original interface as the default and switches previews without changing routes', () => {
+    window.location.hash = '#prestige'
+    render(<App />)
+
+    const shell = screen.getByRole('main')
+    expect(shell).toHaveAttribute('data-visual-mode', 'original')
+    expect(screen.getByRole('button', { name: 'Original interface' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.queryByText('Standalone companion preview')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Game-inspired preview' }))
+
+    expect(shell).toHaveAttribute('data-visual-mode', 'game-inspired')
+    expect(screen.getByRole('button', { name: 'Game-inspired preview' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByText('Standalone companion preview')).toBeInTheDocument()
+    expect(screen.getByText('Selected upgrade details')).toBeInTheDocument()
+    expect(screen.getByText('Scroll routes')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Prestige Planner' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Prestige' })).toHaveAttribute('aria-current', 'page')
+
+    fireEvent.click(screen.getByRole('button', { name: 'Original interface' }))
+
+    expect(shell).toHaveAttribute('data-visual-mode', 'original')
+    expect(screen.queryByText('Standalone companion preview')).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Prestige Planner' })).toBeInTheDocument()
+  })
+
   it('creates a local default profile only when the browser profile vault is empty', async () => {
     render(<App />)
 

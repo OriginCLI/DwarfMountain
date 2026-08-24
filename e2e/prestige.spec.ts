@@ -30,6 +30,24 @@ test('renders and persists the complete interactive Prestige tree', async ({ pag
   expect(consoleErrorsByPage.get(page)).toEqual([])
 })
 
+test('switches between the original and game-inspired interfaces without losing edits', async ({ page }) => {
+  const shell = page.getByRole('main')
+  await expect(shell).toHaveAttribute('data-visual-mode', 'original')
+
+  await page.getByRole('button', { name: 'Game-inspired preview' }).click()
+  await expect(shell).toHaveAttribute('data-visual-mode', 'game-inspired')
+  await expect(page.getByText('Standalone companion preview')).toBeVisible()
+  await page.screenshot({ path: 'docs/verification/prestige-game-inspired-desktop.png', fullPage: true })
+
+  const swiftStart = page.getByRole('button', { name: /Swift Start.*Rank 0 of 3/ })
+  await swiftStart.click()
+  await expect(page.getByRole('button', { name: /Swift Start.*Rank 1 of 3/ })).toBeVisible()
+
+  await page.getByRole('button', { name: 'Original interface' }).click()
+  await expect(shell).toHaveAttribute('data-visual-mode', 'original')
+  await expect(page.getByRole('button', { name: /Swift Start.*Rank 1 of 3/ })).toBeVisible()
+})
+
 test('makes exact effect and source data keyboard-accessible', async ({ page }) => {
   const swiftStart = page.getByRole('button', { name: /Swift Start.*Rank 0 of 3/ })
   await swiftStart.focus()
@@ -62,4 +80,21 @@ test('keeps tier rails usable at a compact viewport', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Tier 1' })).toBeVisible()
   await expect(page.locator('.prestige-tree')).toHaveCSS('overflow-x', 'auto')
   await page.screenshot({ path: 'docs/verification/prestige-mobile.png', fullPage: true })
+})
+
+test('uses a stacked game-inspired layout at a compact viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.reload({ waitUntil: 'networkidle' })
+  await page.getByRole('button', { name: 'Game-inspired preview' }).click()
+
+  await expect(page.getByText('Standalone companion preview')).toBeVisible()
+  await expect(page.getByText('Selected upgrade details')).toBeVisible()
+  await expect(page.getByRole('tooltip')).toBeVisible()
+  await expect(page.locator('.prestige-tree')).toHaveCSS('overflow-x', 'visible')
+  await expect(page.locator('.prestige-tier__grid').first()).toHaveCSS('grid-template-columns', /.+ .+ .+/)
+  await expect.poll(() => page.locator('.prestige-page').evaluate((element) => (
+    element.getBoundingClientRect().width <= (element.closest('.app-frame')?.getBoundingClientRect().width ?? 0)
+  ))).toBe(true)
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true)
+  await page.screenshot({ path: 'docs/verification/prestige-game-inspired-mobile.png', fullPage: true })
 })

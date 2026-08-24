@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Silkscreen";
+  src: url("/fonts/silkscreen/Silkscreen-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Silkscreen";
+  src: url("/fonts/silkscreen/Silkscreen-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   color: #f6e7c5;
   background: #100b09;
@@ -96,6 +112,45 @@ a {
   text-align: right;
 }
 
+.masthead__tools {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+.interface-version-switch {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid #6b3c20;
+  background: #130d0a;
+}
+
+.interface-version-switch button {
+  min-height: 31px;
+  padding: 6px 9px;
+  border: 0;
+  color: #b9aa90;
+  background: transparent;
+  cursor: pointer;
+  font: 700 0.65rem/1.1 "Rockwell Extra Bold", "Copperplate Gothic Light", serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.interface-version-switch button:hover,
+.interface-version-switch button:focus-visible {
+  color: #fff3ce;
+  outline: 2px solid #e4a63d;
+  outline-offset: -2px;
+}
+
+.interface-version-switch button[aria-pressed="true"] {
+  color: #1b1009;
+  background: #e4a63d;
+}
+
 .app-frame {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
@@ -123,6 +178,22 @@ a {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.nav-mark {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border: 1px solid currentcolor;
+  transform: rotate(45deg);
+}
+
+.rail a[aria-current="page"] .nav-mark {
+  background: currentcolor;
+}
+
+.rail-scroll-cue {
+  display: none;
 }
 
 .rail a {
@@ -331,5 +402,347 @@ h1 {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* Game-inspired preview. Every rule is rooted here so the original interface remains available. */
+.app-shell[data-visual-mode="game-inspired"] {
+  --preview-sky: #63add7;
+  --preview-panel: #3f6e88;
+  --preview-panel-deep: #274e6a;
+  --preview-panel-dark: #142b43;
+  --preview-ink: #f4f7ed;
+  --preview-muted: #b9d5df;
+  --preview-yellow: #ffe33b;
+  --preview-blue: #5cd7ff;
+  --preview-line: #e8f4ef;
+  --preview-shadow: #102339;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: clamp(54px, 7vh, 84px) 18px 18px;
+  color: var(--preview-ink);
+  background: #17314b;
+  font-family: "Silkscreen", "Lucida Console", monospace;
+  image-rendering: pixelated;
+}
+
+.game-preview-scene {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(16 39 60 / 5%) 0 42%, rgb(10 28 44 / 38%) 72%, rgb(7 19 31 / 78%) 100%),
+    url("/assets/original/companion-mountain-bg.png") center top / cover no-repeat;
+  image-rendering: pixelated;
+}
+
+.game-preview-scene::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(6 21 35 / 28%), transparent 19% 81%, rgb(6 21 35 / 28%));
+  content: "";
+}
+
+.game-preview-scene > span {
+  display: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] ::selection {
+  color: #0d2336;
+  background: var(--preview-yellow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] :focus-visible {
+  outline: 3px solid var(--preview-yellow);
+  outline-offset: 3px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .masthead,
+.app-shell[data-visual-mode="game-inspired"] .app-frame {
+  width: min(1540px, 100%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .masthead {
+  position: relative;
+  z-index: 2;
+  align-items: center;
+  min-height: 88px;
+  padding: 12px 16px;
+  border: 3px solid var(--preview-line);
+  border-bottom: 3px solid var(--preview-shadow);
+  color: var(--preview-ink);
+  background: rgb(39 78 106 / 96%);
+  box-shadow: 0 8px 22px rgb(4 16 27 / 42%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .brand {
+  gap: 14px;
+  color: var(--preview-ink);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .brand-mark {
+  width: 54px;
+  height: 54px;
+  overflow: hidden;
+  border: 3px solid var(--preview-ink);
+  color: transparent;
+  background:
+    url("/assets/original/preview-mark.svg") center / 100% no-repeat,
+    var(--preview-panel-dark);
+  box-shadow: 4px 4px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .brand-kicker {
+  display: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .brand strong {
+  max-width: 36ch;
+  color: var(--preview-ink);
+  font: 700 clamp(0.9rem, 1.65vw, 1.28rem)/1.2 "Silkscreen", monospace;
+  text-shadow: 3px 3px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .masthead__tools {
+  grid-template-columns: minmax(150px, 1fr) auto;
+  align-items: center;
+  gap: 7px 14px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .preview-mode-label {
+  grid-column: 1 / -1;
+  justify-self: end;
+  margin: 0;
+  color: var(--preview-yellow);
+  font-size: 0.58rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .build-stamp {
+  color: var(--preview-muted);
+  font: 400 0.57rem/1.45 "Silkscreen", monospace;
+  letter-spacing: 0;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .interface-version-switch {
+  border: 2px solid var(--preview-line);
+  background: var(--preview-panel-dark);
+  box-shadow: 3px 3px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .interface-version-switch button {
+  min-height: 34px;
+  color: var(--preview-muted);
+  font: 400 0.58rem/1.2 "Silkscreen", monospace;
+  letter-spacing: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .interface-version-switch button[aria-pressed="true"] {
+  color: var(--preview-panel-dark);
+  background: var(--preview-yellow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .app-frame {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: 186px minmax(0, 1fr);
+  min-height: calc(100vh - 124px);
+  border: 3px solid var(--preview-line);
+  border-top: 0;
+  background: rgb(26 55 76 / 88%);
+  box-shadow: 0 12px 28px rgb(3 14 24 / 48%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail {
+  padding: 18px 10px;
+  border-right: 1px solid var(--preview-line);
+  background: linear-gradient(180deg, rgb(27 58 81 / 98%), rgb(16 38 57 / 98%));
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail-label {
+  margin: 0 8px 14px;
+  color: var(--preview-yellow);
+  font: 700 0.62rem/1.35 "Silkscreen", monospace;
+  letter-spacing: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail ul {
+  gap: 5px;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail a {
+  min-height: 39px;
+  gap: 7px;
+  padding: 9px 8px;
+  border: 2px solid transparent;
+  color: var(--preview-muted);
+  font-size: 0.63rem;
+  line-height: 1.25;
+  text-shadow: 2px 2px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail a > .nav-mark {
+  color: var(--preview-yellow);
+  width: 7px;
+  height: 7px;
+  border-width: 2px;
+  transform: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail a:hover,
+.app-shell[data-visual-mode="game-inspired"] .rail a:focus-visible {
+  border-color: var(--preview-line);
+  color: var(--preview-ink);
+  background: rgb(78 124 149 / 68%);
+  outline: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail a[aria-current="page"] {
+  border-color: var(--preview-ink);
+  color: var(--preview-panel-dark);
+  background: var(--preview-yellow);
+  box-shadow: 3px 3px 0 var(--preview-shadow);
+  text-shadow: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .rail a[aria-current="page"] > .nav-mark {
+  color: var(--preview-panel-dark);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .command-deck {
+  min-height: 640px;
+  background: rgb(39 78 106 / 86%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .eyebrow,
+.app-shell[data-visual-mode="game-inspired"] .rune-line {
+  display: none;
+}
+
+.app-shell[data-visual-mode="game-inspired"] h1 {
+  color: var(--preview-ink);
+  font: 700 clamp(1.7rem, 5vw, 3.65rem)/1.1 "Silkscreen", monospace;
+  letter-spacing: -0.03em;
+  text-shadow: 4px 4px 0 var(--preview-shadow);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .deck-copy {
+  color: var(--preview-muted);
+  font: 400 0.78rem/1.7 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .readiness-grid article {
+  border: 3px solid var(--preview-line);
+  background: var(--preview-panel-deep);
+  box-shadow: 4px 5px 10px rgb(8 26 41 / 38%);
+}
+
+.app-shell[data-visual-mode="game-inspired"] .readiness-grid p,
+.app-shell[data-visual-mode="game-inspired"] .readiness-grid strong {
+  color: var(--preview-yellow);
+  font-family: "Silkscreen", monospace;
+  letter-spacing: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .readiness-grid small {
+  color: var(--preview-ink);
+  font: 400 0.63rem/1.55 "Silkscreen", monospace;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .primary-route {
+  border: 3px solid var(--preview-ink);
+  color: var(--preview-panel-dark);
+  background: var(--preview-yellow);
+  box-shadow: 4px 5px 9px rgb(8 26 41 / 42%);
+  font-family: "Silkscreen", monospace;
+  letter-spacing: 0;
+}
+
+.app-shell[data-visual-mode="game-inspired"] .primary-route:hover,
+.app-shell[data-visual-mode="game-inspired"] .primary-route:focus-visible {
+  border-color: var(--preview-ink);
+  color: var(--preview-panel-dark);
+  background: var(--preview-yellow);
+  outline: 3px solid var(--preview-yellow);
+  outline-offset: 3px;
+  box-shadow: 6px 7px 0 var(--preview-shadow);
+}
+
+@media (max-width: 840px) {
+  .app-shell[data-visual-mode="game-inspired"] {
+    padding: 34px 8px 8px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .masthead {
+    align-items: stretch;
+    gap: 12px;
+    min-height: 0;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .masthead__tools {
+    width: 100%;
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .preview-mode-label,
+  .app-shell[data-visual-mode="game-inspired"] .build-stamp {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .interface-version-switch {
+    width: 100%;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .app-frame {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .rail {
+    position: relative;
+    overflow: visible;
+    padding: 8px;
+    border-right: 0;
+    border-bottom: 3px solid var(--preview-line);
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .rail-scroll-shell {
+    position: relative;
+    min-width: 0;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .rail ul {
+    overflow-x: auto;
+    width: 100%;
+    gap: 4px;
+    padding-right: 60px;
+    scrollbar-color: var(--preview-yellow) var(--preview-panel-dark);
+    scrollbar-width: thin;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .rail a {
+    min-height: 40px;
+  }
+
+  .app-shell[data-visual-mode="game-inspired"] .rail-scroll-cue {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    width: 58px;
+    height: 40px;
+    place-items: center;
+    padding: 0 4px 0 12px;
+    color: var(--preview-panel-dark);
+    background: linear-gradient(90deg, transparent, var(--preview-yellow) 28%);
+    font-size: 0.42rem;
+    line-height: 1.2;
+    text-align: center;
+    pointer-events: none;
   }
 }

@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-24T14:19:32.590Z",
+  "title": "Design System: Dwarf Eats Mountain Companion - Game-Inspired Preview",
+  "extensions": {
+    "colorMeta": {
+      "mountain-sky": {
+        "role": "tertiary",
+        "displayName": "Mountain Sky",
+        "canonical": "#63add7",
+        "tonalRamp": [
+          "oklch(15% 0.096 235.2)",
+          "oklch(26% 0.096 235.2)",
+          "oklch(38% 0.096 235.2)",
+          "oklch(50% 0.096 235.2)",
+          "oklch(62% 0.096 235.2)",
+          "oklch(74% 0.096 235.2)",
+          "oklch(86% 0.096 235.2)",
+          "oklch(95% 0.096 235.2)"
+        ]
+      },
+      "ice-panel": {
+        "role": "neutral",
+        "displayName": "Ice Panel",
+        "canonical": "#3f6e88",
+        "tonalRamp": [
+          "oklch(15% 0.066 234.3)",
+          "oklch(26% 0.066 234.3)",
+          "oklch(38% 0.066 234.3)",
+          "oklch(50% 0.066 234.3)",
+          "oklch(62% 0.066 234.3)",
+          "oklch(74% 0.066 234.3)",
+          "oklch(86% 0.066 234.3)",
+          "oklch(95% 0.066 234.3)"
+        ]
+      },
+      "deep-panel": {
+        "role": "neutral",
+        "displayName": "Deep Panel",
+        "canonical": "#274e6a",
+        "tonalRamp": [
+          "oklch(15% 0.065 241.9)",
+          "oklch(26% 0.065 241.9)",
+          "oklch(38% 0.065 241.9)",
+          "oklch(50% 0.065 241.9)",
+          "oklch(62% 0.065 241.9)",
+          "oklch(74% 0.065 241.9)",
+          "oklch(86% 0.065 241.9)",
+          "oklch(95% 0.065 241.9)"
+        ]
+      },
+      "abyss-panel": {
+        "role": "neutral",
+        "displayName": "Abyss Panel",
+        "canonical": "#142b43",
+        "tonalRamp": [
+          "oklch(15% 0.053 251.1)",
+          "oklch(26% 0.053 251.1)",
+          "oklch(38% 0.053 251.1)",
+          "oklch(50% 0.053 251.1)",
+          "oklch(62% 0.053 251.1)",
+          "oklch(74% 0.053 251.1)",
+          "oklch(86% 0.053 251.1)",
+          "oklch(95% 0.053 251.1)"
+        ]
+      },
+      "snow-ink": {
+        "role": "neutral",
+        "displayName": "Snow Ink",
+        "canonical": "#f4f7ed",
+        "tonalRamp": [
+          "oklch(15% 0.014 120.3)",
+          "oklch(26% 0.014 120.3)",
+          "oklch(38% 0.014 120.3)",
+          "oklch(50% 0.014 120.3)",
+          "oklch(62% 0.014 120.3)",
+          "oklch(74% 0.014 120.3)",
+          "oklch(86% 0.014 120.3)",
+          "oklch(95% 0.014 120.3)"
+        ]
+      },
+      "frost-muted": {
+        "role": "neutral",
+        "displayName": "Frost Muted",
+        "canonical": "#b9d5df",
+        "tonalRamp": [
+          "oklch(15% 0.033 221.3)",
+          "oklch(26% 0.033 221.3)",
+          "oklch(38% 0.033 221.3)",
+          "oklch(50% 0.033 221.3)",
+          "oklch(62% 0.033 221.3)",
+          "oklch(74% 0.033 221.3)",
+          "oklch(86% 0.033 221.3)",
+          "oklch(95% 0.033 221.3)"
+        ]
+      },
+      "prestige-yellow": {
+        "role": "primary",
+        "displayName": "Prestige Yellow",
+        "canonical": "#ffe33b",
+        "tonalRamp": [
+          "oklch(15% 0.174 99.2)",
+          "oklch(26% 0.174 99.2)",
+          "oklch(38% 0.174 99.2)",
+          "oklch(50% 0.174 99.2)",
+          "oklch(62% 0.174 99.2)",
+          "oklch(74% 0.174 99.2)",
+          "oklch(86% 0.174 99.2)",
+          "oklch(95% 0.174 99.2)"
+        ]
+      },
+      "detail-cyan": {
+        "role": "secondary",
+        "displayName": "Detail Cyan",
+        "canonical": "#5cd7ff",
+        "tonalRamp": [
+          "oklch(15% 0.122 222.8)",
+          "oklch(26% 0.122 222.8)",
+          "oklch(38% 0.122 222.8)",
+          "oklch(50% 0.122 222.8)",
+          "oklch(62% 0.122 222.8)",
+          "oklch(74% 0.122 222.8)",
+          "oklch(86% 0.122 222.8)",
+          "oklch(95% 0.122 222.8)"
+        ]
+      },
+      "ice-line": {
+        "role": "neutral",
+        "displayName": "Ice Line",
+        "canonical": "#e8f4ef",
+        "tonalRamp": [
+          "oklch(15% 0.014 169.2)",
+          "oklch(26% 0.014 169.2)",
+          "oklch(38% 0.014 169.2)",
+          "oklch(50% 0.014 169.2)",
+          "oklch(62% 0.014 169.2)",
+          "oklch(74% 0.014 169.2)",
+          "oklch(86% 0.014 169.2)",
+          "oklch(95% 0.014 169.2)"
+        ]
+      },
+      "mountain-shadow": {
+        "role": "neutral",
+        "displayName": "Mountain Shadow",
+        "canonical": "#102339",
+        "tonalRamp": [
+          "oklch(15% 0.049 253.3)",
+          "oklch(26% 0.049 253.3)",
+          "oklch(38% 0.049 253.3)",
+          "oklch(50% 0.049 253.3)",
+          "oklch(62% 0.049 253.3)",
+          "oklch(74% 0.049 253.3)",
+          "oklch(86% 0.049 253.3)",
+          "oklch(95% 0.049 253.3)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Large route and dashboard headings."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Prestige workspace heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Selected upgrade names and compact priority titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Dense tooltip facts and explanatory content."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Fields, tiers, navigation, metadata, and state labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "top-bar-lift",
+        "value": "0 8px 22px rgb(4 16 27 / 42%)",
+        "purpose": "Separates the compact masthead from the landscape."
+      },
+      {
+        "name": "frame-lift",
+        "value": "0 12px 28px rgb(3 14 24 / 48%)",
+        "purpose": "Anchors the full companion workspace."
+      },
+      {
+        "name": "panel-lift",
+        "value": "5px 6px 13px rgb(8 26 41 / 43%)",
+        "purpose": "Lifts counters and the Prestige board from the frame."
+      },
+      {
+        "name": "node-lift",
+        "value": "3px 4px 9px rgb(8 26 41 / 46%)",
+        "purpose": "Keeps upgrade tiles legible as discrete controls."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-tree",
+        "value": "760px"
+      },
+      {
+        "name": "compact-shell",
+        "value": "840px"
+      },
+      {
+        "name": "inspection-stack",
+        "value": "1180px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Route Action",
+      "kind": "button",
+      "refersTo": "button-primary-route",
+      "description": "Yellow framed action used to enter the Prestige planner.",
+      "html": "<a class=\"ds-primary-route\" href=\"#\"><span class=\"ds-primary-route-mark\" aria-hidden=\"true\"></span>Open Prestige planner</a>",
+      "css": ".ds-primary-route { display: inline-flex; gap: 10px; align-items: center; padding: 13px 17px; border: 3px solid #f4f7ed; border-radius: 0; color: #142b43; background: #ffe33b; box-shadow: 4px 5px 9px rgb(8 26 41 / 42%); font: 700 0.5rem/1.45 \"Silkscreen\", monospace; letter-spacing: 0; text-decoration: none; text-transform: uppercase; } .ds-primary-route-mark { width: 8px; height: 8px; flex: 0 0 auto; background: #142b43; } .ds-primary-route:hover, .ds-primary-route:focus-visible { border-color: #f4f7ed; color: #142b43; background: #ffe33b; outline: 3px solid #ffe33b; outline-offset: 3px; box-shadow: 6px 7px 0 #102339; }"
+    },
+    {
+      "name": "Interface Version Switch",
+      "kind": "button",
+      "refersTo": "button-mode-active",
+      "description": "Framed two-option switch that keeps Original available and identifies the opt-in preview.",
+      "html": "<div class=\"ds-mode-switch\" role=\"group\" aria-label=\"Interface version\"><button type=\"button\" aria-pressed=\"false\">Original</button><button type=\"button\" aria-pressed=\"true\">Game-inspired preview</button></div>",
+      "css": ".ds-mode-switch { display: inline-grid; grid-template-columns: auto auto; gap: 2px; padding: 2px; border: 2px solid #e8f4ef; background: #142b43; box-shadow: 3px 3px 0 #102339; } .ds-mode-switch button { min-height: 34px; padding: 6px 9px; border: 0; border-radius: 0; color: #b9d5df; background: transparent; cursor: pointer; font: 400 0.58rem/1.2 \"Silkscreen\", monospace; text-transform: uppercase; } .ds-mode-switch button:hover, .ds-mode-switch button:focus-visible { color: #fff3ce; outline: 2px solid #e4a63d; outline-offset: -2px; } .ds-mode-switch button[aria-pressed=\"true\"] { color: #142b43; background: #ffe33b; }"
+    },
+    {
+      "name": "Resource Input",
+      "kind": "input",
+      "refersTo": "input-resource",
+      "description": "Compact numeric resource field inside the framed Prestige counter strip.",
+      "html": "<label class=\"ds-resource-field\"><span>Available Prestige Points</span><input type=\"number\" min=\"0\" value=\"0\"></label>",
+      "css": ".ds-resource-field { display: flex; min-width: 180px; min-height: 66px; flex-direction: column; justify-content: center; padding: 9px 10px; border: 3px solid #e8f4ef; color: #b9d5df; background: #274e6a; font: 400 0.5rem/1.35 \"Silkscreen\", monospace; } .ds-resource-field input { width: 100%; min-height: 28px; padding: 2px 0; border: 0; border-bottom: 2px solid #ffe33b; border-radius: 0; color: #ffe33b; outline: 0; background: transparent; caret-color: #ffe33b; font: 700 0.92rem/1.2 \"Silkscreen\", monospace; font-variant-numeric: tabular-nums; text-shadow: 2px 2px 0 #102339; } .ds-resource-field input:focus, .ds-resource-field input:focus-visible { border-color: #f4f7ed; outline: 3px solid #ffe33b; outline-offset: 3px; }"
+    },
+    {
+      "name": "Active Route",
+      "kind": "nav",
+      "refersTo": "nav-route-active",
+      "description": "Current companion route with a yellow field and square pixel marker.",
+      "html": "<a class=\"ds-route\" href=\"#\" aria-current=\"page\"><span aria-hidden=\"true\"></span>Prestige</a>",
+      "css": ".ds-route { display: flex; min-height: 39px; gap: 7px; align-items: center; padding: 9px 8px; border: 2px solid #f4f7ed; border-radius: 0; color: #142b43; background: #ffe33b; box-shadow: 3px 3px 0 #102339; font: 400 0.63rem/1.25 \"Silkscreen\", monospace; text-decoration: none; } .ds-route > span { width: 7px; height: 7px; border: 2px solid #142b43; background: #142b43; } .ds-route:hover, .ds-route:focus-visible { border-color: #e8f4ef; color: #f4f7ed; background: rgb(78 124 149 / 68%); outline: 3px solid #ffe33b; outline-offset: 3px; }"
+    },
+    {
+      "name": "Prestige Board",
+      "kind": "card",
+      "refersTo": "card-prestige-board",
+      "description": "Dominant framed board with a tier label column and seven-column desktop grid.",
+      "html": "<section class=\"ds-prestige-board\"><header><strong>I</strong><span>Tier 1</span><small>Open</small></header><div class=\"ds-prestige-grid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></section>",
+      "css": ".ds-prestige-board { display: grid; grid-template-columns: 98px minmax(0, 1fr); padding: 12px; border: 3px solid #e8f4ef; border-radius: 0; color: #f4f7ed; background: rgb(47 91 116 / 92%); box-shadow: 5px 6px 13px rgb(8 26 41 / 43%); font-family: \"Silkscreen\", monospace; } .ds-prestige-board header { display: flex; flex-direction: column; gap: 7px; padding: 12px 8px; } .ds-prestige-board header strong { color: #ffe33b; font-size: 0.72rem; text-shadow: 2px 2px 0 #102339; } .ds-prestige-board header span { font-size: 0.75rem; font-weight: 700; } .ds-prestige-board header small { color: #b9d5df; font-size: 0.47rem; } .ds-prestige-grid { display: grid; grid-template-columns: repeat(7, minmax(24px, 1fr)); gap: 9px; padding: 10px 8px 12px; } .ds-prestige-grid span { min-height: 44px; border: 3px solid #f4f7ed; background: #274e6a; box-shadow: 3px 4px 9px rgb(8 26 41 / 46%); }"
+    },
+    {
+      "name": "Unowned Upgrade Node",
+      "kind": "custom",
+      "refersTo": "upgrade-node-unowned",
+      "description": "Available but unowned node with white frame, cool blue field, cost badge, and empty pips.",
+      "html": "<button class=\"ds-node ds-node-unowned\" type=\"button\" data-selected=\"false\" aria-label=\"Available upgrade, Rank 0 of 3\"><span class=\"ds-node-icon\" aria-hidden=\"true\"><i class=\"ds-node-mark\"></i></span><span class=\"ds-node-cost\">1</span><span class=\"ds-node-pips\"><i></i><i></i><i></i></span></button>",
+      "css": ".ds-node { position: relative; display: grid; width: 76px; min-height: 82px; place-items: center; padding: 5px 4px 19px; border: 3px solid #f4f7ed; border-radius: 0; color: #f4f7ed; background: #274e6a; box-shadow: 3px 4px 9px rgb(8 26 41 / 46%); cursor: pointer; font-family: \"Silkscreen\", monospace; } .ds-node:hover, .ds-node:focus-visible { border-color: #ffe33b; outline: 0; transform: translateY(-1px); box-shadow: 0 0 0 2px #102339, 0 0 0 5px #ffe33b, 0 7px 12px rgb(8 26 41 / 48%); } .ds-node[data-selected=\"true\"] { border-color: #ffe33b; outline: 3px solid #77e7ff; outline-offset: 2px; } .ds-node-icon { display: grid; width: 48px; height: 48px; place-items: center; } .ds-node-mark { width: 18px; height: 18px; border: 5px solid currentcolor; box-shadow: 7px -7px 0 -3px currentcolor, -7px 7px 0 -3px currentcolor; transform: rotate(45deg); } .ds-node-cost { position: absolute; top: -3px; right: -3px; display: grid; width: 22px; height: 22px; place-items: center; border: 2px solid #142b43; color: #142b43; background: #f4f7ed; font-size: 0.54rem; font-weight: 700; } .ds-node-pips { position: absolute; bottom: 7px; display: flex; gap: 4px; } .ds-node-pips i { width: 7px; height: 5px; background: #89aebe; }"
+    },
+    {
+      "name": "Purchased Upgrade Node",
+      "kind": "custom",
+      "refersTo": "upgrade-node-purchased",
+      "description": "Owned node with yellow frame, yellow cost badge, and filled rank pips.",
+      "html": "<button class=\"ds-node-purchased\" type=\"button\" aria-label=\"Purchased upgrade, Rank 2 of 3\"><span class=\"ds-purchased-icon\" aria-hidden=\"true\"><i class=\"ds-purchased-mark\"></i></span><span class=\"ds-purchased-cost\">1</span><span class=\"ds-purchased-pips\"><i></i><i></i><i class=\"ds-empty\"></i></span></button>",
+      "css": ".ds-node-purchased { position: relative; display: grid; width: 76px; min-height: 82px; place-items: center; padding: 5px 4px 19px; border: 3px solid #ffe33b; border-radius: 0; color: #ffe33b; background: #3f7896; box-shadow: 3px 4px 9px rgb(8 26 41 / 46%); cursor: pointer; font-family: \"Silkscreen\", monospace; } .ds-node-purchased:hover, .ds-node-purchased:focus-visible { outline: 3px solid #77e7ff; outline-offset: 2px; transform: translateY(-1px); } .ds-purchased-icon { display: grid; width: 48px; height: 48px; place-items: center; } .ds-purchased-mark { width: 18px; height: 18px; border: 5px solid currentcolor; box-shadow: 7px -7px 0 -3px currentcolor, -7px 7px 0 -3px currentcolor; transform: rotate(45deg); } .ds-purchased-cost { position: absolute; top: -3px; right: -3px; display: grid; width: 22px; height: 22px; place-items: center; border: 2px solid #142b43; color: #142b43; background: #ffe33b; font-size: 0.54rem; font-weight: 700; } .ds-purchased-pips { position: absolute; bottom: 7px; display: flex; gap: 4px; } .ds-purchased-pips i { width: 7px; height: 5px; background: #ffe33b; } .ds-purchased-pips i.ds-empty { background: #89aebe; }"
+    },
+    {
+      "name": "Locked Upgrade Node",
+      "kind": "custom",
+      "refersTo": "upgrade-node-locked",
+      "description": "Desaturated but focusable node whose accessible label carries the lock reason.",
+      "html": "<button class=\"ds-node-locked\" type=\"button\" aria-disabled=\"true\" aria-label=\"Locked upgrade, Tier 2 unlocks at 12 PP spent\"><span class=\"ds-locked-mark\" aria-hidden=\"true\"></span><small>LOCKED</small></button>",
+      "css": ".ds-node-locked { display: grid; width: 76px; min-height: 82px; place-items: center; padding: 5px 4px 19px; border: 3px solid #91aeb9; border-radius: 0; color: #a9c0c8; background: #28485e; box-shadow: 3px 4px 9px rgb(8 26 41 / 38%); cursor: not-allowed; filter: saturate(0.35) brightness(0.82); font-family: \"Silkscreen\", monospace; } .ds-locked-mark { width: 20px; height: 20px; border: 4px solid currentcolor; box-shadow: inset 0 0 0 3px #28485e; } .ds-node-locked small { color: inherit; font-size: 0.42rem; } .ds-node-locked:hover, .ds-node-locked:focus-visible { border-color: #f4f7ed; outline: 0; box-shadow: 0 0 0 2px #102339, 0 0 0 5px #b9d5df, 0 7px 12px rgb(8 26 41 / 42%); }"
+    },
+    {
+      "name": "Inspection Panel",
+      "kind": "card",
+      "refersTo": "card-inspection",
+      "description": "Selected-upgrade facts arranged in a game-tooltip hierarchy with quieter provenance.",
+      "html": "<aside class=\"ds-inspection\"><p class=\"ds-inspection-kicker\">Tier 1 · Grid 1:1</p><h3>Explosive Interns</h3><strong>Rank 0 / 3</strong><hr><dl><div><dt>Current-rank effect</dt><dd>Not owned.</dd></div><div><dt>Next rank</dt><dd>Next rank cost 1 PP</dd></div></dl><small>Installed build provenance</small></aside>",
+      "css": ".ds-inspection { width: min(330px, 100%); padding: 16px; border: 3px solid #e8f4ef; border-radius: 0; color: #f4f7ed; background: rgb(35 73 98 / 97%); box-shadow: 5px 6px 13px rgb(8 26 41 / 46%); font-family: \"Silkscreen\", monospace; } .ds-inspection-kicker, .ds-inspection small { color: #b9d5df; font-size: 0.49rem; line-height: 1.5; } .ds-inspection h3 { margin: 7px 0 0; color: #5cd7ff; font-size: 0.88rem; line-height: 1.3; text-shadow: 2px 2px 0 #102339; } .ds-inspection > strong { display: block; margin-top: 8px; color: #ffe33b; font-size: 0.68rem; text-shadow: 2px 2px 0 #102339; } .ds-inspection hr { height: 3px; margin: 13px 0; border: 0; background: #e8f4ef; } .ds-inspection dl { display: grid; gap: 12px; margin: 0 0 14px; } .ds-inspection dt { color: #ffe33b; font-size: 0.5rem; font-weight: 700; line-height: 1.45; text-transform: uppercase; } .ds-inspection dd { margin: 3px 0 0; font-size: 0.6rem; line-height: 1.58; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Standalone Mountain Command Screen",
+    "overview": "This system is the implemented visual language for the optional `game-inspired` standalone companion preview. It uses an original pixel mountain backdrop, icy slate-blue fields, hard pixel edges, compact game-menu hierarchy, white pixel lettering, yellow ownership and action states, and cyan inspection detail. The Prestige board is the dominant instrument; provenance and companion-only controls stay legible but secondary.\n\nThe preview is strictly opt-in under `data-visual-mode=\"game-inspired\"`. The existing original/legacy interface remains the default and available mode; do not apply these preview tokens globally or describe the preview as a replacement. The product remains a fan-made companion, never an official game surface or a gameplay overlay.",
+    "keyCharacteristics": [
+      "Pixel-sharp, information-dense command-screen composition.",
+      "Cool layered panels over an original mountain atmosphere.",
+      "Yellow for ownership, maximum rank, active routes, and primary action.",
+      "Cyan and explicit framing keep selection distinct from ownership.",
+      "Dense seven-column desktop tree and purpose-built three-column mobile tree.",
+      "Visible provenance and uncertainty labels remain part of the interface."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Signal Rule",
+        "body": "Yellow communicates ownership or action; cyan and an explicit frame communicate selection. Never make those states indistinguishable.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cool Field Rule",
+        "body": "Large surfaces stay within the icy slate family so the yellow state signal remains rare and immediate.",
+        "section": "colors"
+      },
+      {
+        "name": "The Pixel Voice Rule",
+        "body": "In preview mode, use Silkscreen across display, body, controls, and metadata; rely on hierarchy rather than a second decorative font.",
+        "section": "typography"
+      },
+      {
+        "name": "The Offset Legibility Rule",
+        "body": "White or yellow text over blue atmosphere may use a hard dark offset shadow, never a soft glow.",
+        "section": "typography"
+      },
+      {
+        "name": "The Board-First Rule",
+        "body": "Allocate the largest uninterrupted region to the upgrade grid; counters, provenance, and inspection detail support it rather than compete with it.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hard Depth Rule",
+        "body": "Use borders and short dark offsets for structure; reserve diffuse shadow for separating the assembled command screen from the background.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Pixel Edge Rule",
+        "body": "Do not round preview panels or controls; every silhouette should read as a deliberate pixel-built rectangle.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do scope every game-inspired rule beneath `data-visual-mode=\"game-inspired\"` and keep the original interface as the default available mode.",
+      "Do keep the Prestige board visually dominant and preserve its seven-column desktop and three-column mobile scan patterns.",
+      "Do combine color with frames, pips, labels, and lock explanations for ownership, selection, and availability.",
+      "Do keep local fallback marks usable when optional proprietary Prestige icons are absent.",
+      "Do respect reduced-motion preferences and preserve visible keyboard focus on every node, including locked nodes."
+    ],
+    "donts": [
+      "Don't present the preview as an official game product, gameplay overlay, or screenshot replica.",
+      "Don't commit or depend on proprietary screenshots, sprites, fonts, audio, executables, saves, or raw extraction output.",
+      "Don't soften the preview into rounded cards, pills, or generic web-dashboard chrome.",
+      "Don't use yellow selection treatment alone; selection must remain distinct from purchased and maxed states.",
+      "Don't let companion-only details or unverified claims compete with verified upgrade information."
+    ]
+  }
+}
